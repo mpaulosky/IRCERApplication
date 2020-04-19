@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace IRCERDataManager.Library_UnitTests
@@ -8,7 +7,6 @@ namespace IRCERDataManager.Library_UnitTests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }
