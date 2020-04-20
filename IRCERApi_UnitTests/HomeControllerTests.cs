@@ -49,7 +49,7 @@ namespace IRCERApi_UnitTests
             }
         }
 
-        // ToDo figure out how to test this method
+        // ToDo figure out how to test this Action event
         //[Fact]
         //public void Error_ReturnsView()
         //{
