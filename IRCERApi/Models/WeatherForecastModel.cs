@@ -1,6 +1,6 @@
 using System;
 
-namespace IRCERUI.Data
+namespace IRCERUI.Models
 {
     public class WeatherForecastModel
     {

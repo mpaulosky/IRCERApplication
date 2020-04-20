@@ -1,4 +1,4 @@
-﻿using IRCERUI.Data;
+﻿using IRCERUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

@@ -1,8 +1,9 @@
+using IRCERUI.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IRCERUI.Data
+namespace IRCERApi.Data
 {
     public class WeatherForecastService
     {
