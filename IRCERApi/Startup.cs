@@ -1,4 +1,6 @@
 using IRCERApi.Data;
+using IRCERDataManager.Library.DataAccess;
+using IRCERDataManager.Library.Internal.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -31,15 +33,13 @@ namespace IRCERApi
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 
             // Personal Services
-            //services.AddTransient<IInventoryData, InventoryData>();
-            //services.AddTransient<IProductData, ProductData>();
-            //services.AddTransient<ISaleData, SaleData>();
-            //services.AddTransient<IUserData, UserData>();
-            //services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+            services.AddTransient<IUserData, UserData>();
+            services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 
             services.AddAuthentication(options =>
             {

@@ -5,12 +5,10 @@ namespace IRCERApi.Data
 {
     public class ValidateUser : IValidateUser
     {
-        private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ValidateUser(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public ValidateUser(UserManager<IdentityUser> userManager)
         {
-            _context = context;
             _userManager = userManager;
         }
 

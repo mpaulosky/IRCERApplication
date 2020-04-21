@@ -48,7 +48,7 @@ namespace IRCERApi.Token
                 claims.Add(new Claim(ClaimTypes.Role, role.Name));
             }
 
-            string key = _config.GetValue<string>("Secrets:SecurityKey");
+            var key = _config.GetValue<string>("Secrets:SecurityKey");
 
             var token = new JwtSecurityToken(
                 new JwtHeader(
