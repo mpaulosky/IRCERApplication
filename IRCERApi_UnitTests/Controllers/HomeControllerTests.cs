@@ -1,9 +1,8 @@
 ﻿using Autofac.Extras.Moq;
-using IRCERApi.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 
-namespace IRCERApi_UnitTests
+namespace IRCERApi.Controllers.Tests
 {
     public class HomeControllerTests
     {

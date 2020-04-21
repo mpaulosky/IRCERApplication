@@ -1,10 +1,9 @@
 using Autofac.Extras.Moq;
 using Castle.Core.Logging;
-using IRCERApi.Controllers;
 using System.Linq;
 using Xunit;
 
-namespace IRCERApi_UnitTests
+namespace IRCERApi.Controllers.Tests
 {
     public class WeatherForecastControllerTests
     {
