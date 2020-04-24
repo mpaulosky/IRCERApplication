@@ -15,6 +15,11 @@ namespace IRCERDataManager.Library.DataAccess
 
         public List<UserModel> GetUserById(string Id)
         {
+            if (string.IsNullOrWhiteSpace(Id))
+            {
+                throw new System.ArgumentException("message", nameof(Id));
+            }
+
             var output = _sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", new { Id }, "TRMData");
 
             return output;

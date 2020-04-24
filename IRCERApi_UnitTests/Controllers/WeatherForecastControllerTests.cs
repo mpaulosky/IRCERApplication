@@ -5,7 +5,7 @@ using Xunit;
 
 namespace IRCERApi.Controllers.Tests
 {
-    public class WeatherForecastControllerTests
+    public class WeatherForecastController_Tests
     {
         [Fact]
         public void Get_ShouldReturnAListOfForecasts()

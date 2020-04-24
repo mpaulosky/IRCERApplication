@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace IRCERApi.Controllers
 {
-    public class TokenController : Controller
+    public class TokenController : ControllerBase
     {
         private readonly IValidateUser _validateUser;
         private readonly ICreateToken _createToken;

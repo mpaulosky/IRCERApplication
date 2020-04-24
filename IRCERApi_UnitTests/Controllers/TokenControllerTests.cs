@@ -8,7 +8,7 @@ using Xunit;
 
 namespace IRCERApi.Controllers.Tests
 {
-    public class TokenControllerTests
+    public class TokenController_Tests
     {
         [Fact]
         public async Task Create_WithValidUser_ShouldReturnToken()

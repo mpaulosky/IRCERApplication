@@ -4,7 +4,7 @@ using Xunit;
 
 namespace IRCERApi.Controllers.Tests
 {
-    public class HomeControllerTests
+    public class HomeController_Tests
     {
         [Fact(DisplayName = "")]
         public void Index_ReturnsView()

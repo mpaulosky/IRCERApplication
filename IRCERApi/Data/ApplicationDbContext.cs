@@ -8,5 +8,9 @@ namespace IRCERApi.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
+        public ApplicationDbContext()
+        {
+        }
     }
 }
