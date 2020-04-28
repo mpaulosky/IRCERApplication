@@ -6,9 +6,9 @@ using Moq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace IRCERApi.Controllers.Tests
+namespace IRCERApi.Controllers.UnitTests
 {
-    public class TokenController_Tests
+    public class TokenControllerUnitTests
     {
         [Fact]
         public async Task Create_WithValidUser_ShouldReturnToken()

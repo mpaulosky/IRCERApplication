@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 
-namespace IRCERApi.Controllers.Tests
+namespace IRCERApi.Controllers.UnitTests
 {
-    public class HomeController_Tests
+    public class HomeControllerUnitTests
     {
         [Fact(DisplayName = "")]
         public void Index_ReturnsView()

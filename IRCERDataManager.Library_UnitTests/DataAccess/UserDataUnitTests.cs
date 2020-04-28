@@ -8,7 +8,7 @@ using Xunit;
 
 namespace IRCERDataManager.Library.DataAccess.UnitTests
 {
-    public class UserData_Tests
+    public class UserDataUnitTests
     {
         [Fact()]
         public void GetUserById_WithValidId_ShouldReturnUser_Test()

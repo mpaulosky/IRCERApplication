@@ -11,7 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace IRCERApi.Controllers
+namespace IRCERApi.Controllers.UnitTests
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,9 +38,9 @@ namespace IRCERApi.Controllers
         [HttpGet]
         public UserModel GetById()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = User.Identity.Name;
 
-            return _userData.GetUserById(userId).First();
+            return _userData.GetUserById(userId).FirstOrDefault();
         }
 
         [Authorize(Roles = "Admin")]

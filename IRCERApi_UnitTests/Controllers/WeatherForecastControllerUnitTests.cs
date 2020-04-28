@@ -3,9 +3,9 @@ using Castle.Core.Logging;
 using System.Linq;
 using Xunit;
 
-namespace IRCERApi.Controllers.Tests
+namespace IRCERApi.Controllers.UnitTests
 {
-    public class WeatherForecastController_Tests
+    public class WeatherForecastControllerUnitTests
     {
         [Fact]
         public void Get_ShouldReturnAListOfForecasts()
