@@ -1,8 +1,7 @@
 ﻿using Bunit;
-using IRCERUI.Pages;
 using Xunit;
 
-namespace IRCERUI.UnitTests
+namespace IRCERUI.Pages.UnitTests
 {
     public class ErrorComponentUnitTests : ComponentTestFixture
     {

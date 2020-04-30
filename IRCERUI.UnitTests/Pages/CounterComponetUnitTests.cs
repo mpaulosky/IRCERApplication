@@ -1,14 +1,13 @@
 using Bunit;
-using IRCERUI.Pages;
 using Shouldly;
 using Xunit;
 
-namespace IRCERUI.UnitTests
+namespace IRCERUI.Pages.UnitTests
 {
     public class CounterComponetUnitTests : ComponentTestFixture
     {
         [Fact]
-        public void Component1RendersCorrectly()
+        public void CounterComponet_RendersCorrectly()
         {
             var cut = RenderComponent<Counter>();
 

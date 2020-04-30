@@ -1,6 +1,6 @@
 using System;
 
-namespace IRCERUI.Models
+namespace IRCERApi.Models
 {
     public class WeatherForecastModel
     {

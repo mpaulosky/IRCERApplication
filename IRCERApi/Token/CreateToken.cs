@@ -19,8 +19,8 @@ namespace IRCERApi.Token
         private readonly IConfiguration _config;
 
         public CreateToken(ApplicationDbContext context,
-                               UserManager<IdentityUser> userManager,
-                               IConfiguration config)
+                           UserManager<IdentityUser> userManager,
+                           IConfiguration config)
         {
             _context = context;
             _userManager = userManager;

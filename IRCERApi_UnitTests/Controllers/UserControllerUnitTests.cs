@@ -2,10 +2,12 @@
 using IRCERDataManager.Library.DataAccess;
 using IRCERDataManager.Library.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace IRCERApi.Controllers.UnitTests
@@ -47,53 +49,77 @@ namespace IRCERApi.Controllers.UnitTests
             }
         }
 
-        [Fact()]
-        public void GetAllUsers_Test()
-        {
-            //Arrange
+        //[Fact()]
+        //public void GetAllUsers_Test()
+        //{
+        //    //Arrange
 
-            //Act
+        //    //Act
 
-            //Assert
+        //    //Assert
 
-            Assert.True(false, "This test needs an implementation");
-        }
+        //    Assert.True(false, "This test needs an implementation");
+        //}
 
-        [Fact()]
-        public void GetAllRoles_Test()
-        {
-            //Arrange
+        //[Fact()]
+        //public void GetAllRoles_Test()
+        //{
+        //    using (var mock = AutoMock.GetLoose())
+        //    {
+        //        //Arrange
 
-            //Act
+        //        var user = new IdentityUser
+        //        {
+        //            Id = "123",
+        //            UserName = "test@test.com",
+        //            PasswordHash = "test",
+        //            Email = "test@test.com"
+        //        };
 
-            //Assert
+        //        var context = new Mock<ApplicationDbContext>();
+        //        var logger = new Mock<ILogger<UserController>>();
+        //        var userData = new Mock<IUserData>();
+        //        var userManager = MockHelpers.MockUserManager<IdentityUser>();
+        //        userManager.Setup(x => x.GetRolesAsync(user)).Returns(() => GetSampleIdentityRoles());
 
-            Assert.True(false, "This test needs an implementation");
-        }
+        //        var sut = new UserController(context.Object, userManager.Object, userData.Object, logger.Object);
 
-        [Fact()]
-        public void AddARole_Test()
-        {
-            //Arrange
+        //        //Act
 
-            //Act
+        //        //var results = sut.GetAllRoles();
 
-            //Assert
+        //        //Assert
 
-            Assert.True(false, "This test needs an implementation");
-        }
+        //        Assert.Equal(2, results.Count);
+        //    }
+        //}
 
-        [Fact()]
-        public void RemoveARole_Test()
-        {
-            //Arrange
+        //[Fact()]
+        //public void AddARole_Test()
+        //{
+        //    //Arrange
 
-            //Act
+        //    //Act
 
-            //Assert
+        //    //Assert
 
-            Assert.True(false, "This test needs an implementation");
-        }
+        //    Assert.True(false, "This test needs an implementation");
+        //}
+
+        //[Fact()]
+        //public void RemoveARole_Test()
+        //{
+        //    using (var mock = AutoMock.GetLoose())
+        //    {
+        //        //Arrange
+
+        //        //Act
+
+        //        //Assert
+
+        //        Assert.True(false, "This test needs an implementation");
+        //    }
+        //}
 
         private void SetupUser(UserController sut, string userName)
         {
@@ -141,6 +167,46 @@ namespace IRCERApi.Controllers.UnitTests
             };
 
             return persons;
+        }
+
+        private List<IdentityUser> GetSampleIdentityUsers()
+        {
+            var persons = new List<IdentityUser>
+            {
+                new IdentityUser
+                {
+                    Id ="Tim.Corey@corey.org",
+                    UserName = "Tim.Corey@corey.org",
+                    Email = "Tim.Corey@corey.org",
+                },
+                new IdentityUser
+                {
+                    Id ="Charity.Corey@corey.org",
+                    UserName = "Charity.Corey@corey.org",
+                    Email = "Charity.Corey@corey.org",
+                },
+                new IdentityUser
+                {
+                    Id ="Jon.Corey@corey.org",
+                    UserName = "Jon.Corey@corey.org",
+                    Email = "Jon.Corey@corey.org",
+                },
+                new IdentityUser
+                {
+                    Id ="Chris.Corey@corey.org",
+                    UserName = "Chris.Corey@corey.org",
+                    Email = "Chris.Corey@corey.org",
+                }
+            };
+
+            return persons;
+        }
+
+        private async Task<IList<string>> GetSampleIdentityRoles()
+        {
+            var roles = new List<string> { "Admin", "User" };
+
+            return roles;
         }
     }
 }

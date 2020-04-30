@@ -1,18 +1,18 @@
-using IRCERUI.Models;
+using IRCERApi.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace IRCERApi.Data
 {
-    public static class WeatherForecastService
+    public class WeatherForecastService
     {
         private static readonly string[] _summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        public static Task<WeatherForecastModel[]> GetForecastAsync(DateTime startDate)
+        public Task<WeatherForecastModel[]> GetForecastAsync(DateTime startDate)
         {
             var rng = new Random();
             return Task.FromResult(Enumerable.Range(1, 5).Select(index => new WeatherForecastModel
