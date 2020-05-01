@@ -1,3 +1,5 @@
+[![Build status](https://dev.azure.com/matthewjpaulosky/IRCERSolution/_apis/build/status/IRCERUI%20-%20CI)](https://dev.azure.com/matthewjpaulosky/IRCERSolution/_build/latest?definitionId=10)
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
