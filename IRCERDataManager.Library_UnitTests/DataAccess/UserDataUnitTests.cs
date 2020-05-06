@@ -19,7 +19,7 @@ namespace IRCERDataManager.Library.DataAccess.UnitTests
 
                 var userID = "test@email.com";
 
-                var userData = new List<UserModel> { new UserModel { Id = userID, FirstName = "John", LastName = "Doe" } };
+                var userData = new List<UserModel> { new UserModel { Id = userID, FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@test.com", CreatedDate = DateTime.Now } };
 
                 mock.Mock<ISqlDataAccess>().Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>())).Returns(() => userData);
 
