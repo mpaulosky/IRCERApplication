@@ -1,8 +1,8 @@
 ﻿using Autofac.Extras.Moq;
-using IdentityHelpers;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 using System.Threading.Tasks;
+using TestHelpers;
 using Xunit;
 
 namespace IRCERApi.Data.UnitTests

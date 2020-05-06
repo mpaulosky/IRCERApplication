@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IdentityHelpers\IdentityHelpers.csproj" />
+    <ProjectReference Include="..\IdentityHelpers\TestHelpers.csproj" />
     <ProjectReference Include="..\IRCERApi\IRCERApi.csproj" />
     <ProjectReference Include="..\IRCERDataManager.Library\IRCERDataManager.Library.csproj" />
   </ItemGroup>

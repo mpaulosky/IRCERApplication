@@ -3,18 +3,15 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace IdentityHelpers
+namespace TestHelpers
 {
     /// <summary>
     /// <![CDATA[https://github.com/dotnet/aspnetcore/blob/master/src/Identity/test/Shared/MockHelpers.cs]]>
     /// </summary>
     public static class MockHelpers
     {
-        public static StringBuilder LogMessage = new StringBuilder();
-
         public static Mock<UserManager<TUser>> MockUserManager<TUser>() where TUser : class
         {
             var store = new Mock<IUserStore<TUser>>();
