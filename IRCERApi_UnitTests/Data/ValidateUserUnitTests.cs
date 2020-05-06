@@ -17,13 +17,7 @@ namespace IRCERApi.Data.UnitTests
             {
                 //Arrange
 
-                var user = new IdentityUser
-                {
-                    Id = "123",
-                    UserName = "test@test.com",
-                    PasswordHash = "test",
-                    Email = "test@test.com"
-                };
+                var user = MockHelpers.GetIdentityUser();
 
                 var userManager = MockHelpers.MockUserManager<IdentityUser>();
                 userManager.Setup(s => s.FindByEmailAsync(user.Email)).ReturnsAsync(() => user);
@@ -49,13 +43,7 @@ namespace IRCERApi.Data.UnitTests
             {
                 //Arrange
 
-                var user = new IdentityUser
-                {
-                    Id = "123",
-                    UserName = "test@test.com",
-                    PasswordHash = "test",
-                    Email = "test@test.com"
-                };
+                var user = MockHelpers.GetIdentityUser();
 
                 var userManager = MockHelpers.MockUserManager<IdentityUser>();
                 userManager.Setup(s => s.FindByEmailAsync(user.Email)).ReturnsAsync(() => user);

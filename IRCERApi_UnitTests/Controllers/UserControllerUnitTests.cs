@@ -1,13 +1,10 @@
 ﻿using Autofac.Extras.Moq;
 using IRCERDataManager.Library.DataAccess;
-using IRCERDataManager.Library.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using TestHelpers;
 using Xunit;
 
 namespace IRCERApi.Controllers.UnitTests
@@ -25,7 +22,7 @@ namespace IRCERApi.Controllers.UnitTests
             {
                 //Arrange
 
-                var userData = GetSamplePeople().Where(a => a.Id == userName).ToList();
+                var userData = MockHelpers.GetSamplePeople().Where(a => a.Id == userName).ToList();
 
                 mock.Mock<IUserData>()
                     .Setup(x => x.GetUserById(userName))
@@ -130,83 +127,6 @@ namespace IRCERApi.Controllers.UnitTests
             {
                 HttpContext = mockContext.Object
             };
-        }
-
-        private List<UserModel> GetSamplePeople()
-        {
-            var persons = new List<UserModel>
-            {
-                new UserModel
-                {
-                    Id ="Tim.Corey@corey.org",
-                    FirstName = "Tim",
-                    LastName = "Corey",
-                    EmailAddress = "Tim.Corey@corey.org",
-                },
-                new UserModel
-                {
-                    Id ="Charity.Corey@corey.org",
-                    FirstName = "Charity",
-                    LastName = "Corey",
-                    EmailAddress = "Charity.Corey@corey.org",
-                },
-                new UserModel
-                {
-                    Id ="Jon.Corey@corey.org",
-                    FirstName = "Jon",
-                    LastName = "Corey",
-                    EmailAddress = "Jon.Corey@corey.org",
-                },
-                new UserModel
-                {
-                    Id ="Chris.Corey@corey.org",
-                    FirstName = "Chris",
-                    LastName = "Corey",
-                    EmailAddress = "Chris.Corey@corey.org",
-                }
-            };
-
-            return persons;
-        }
-
-        private List<IdentityUser> GetSampleIdentityUsers()
-        {
-            var persons = new List<IdentityUser>
-            {
-                new IdentityUser
-                {
-                    Id ="Tim.Corey@corey.org",
-                    UserName = "Tim.Corey@corey.org",
-                    Email = "Tim.Corey@corey.org",
-                },
-                new IdentityUser
-                {
-                    Id ="Charity.Corey@corey.org",
-                    UserName = "Charity.Corey@corey.org",
-                    Email = "Charity.Corey@corey.org",
-                },
-                new IdentityUser
-                {
-                    Id ="Jon.Corey@corey.org",
-                    UserName = "Jon.Corey@corey.org",
-                    Email = "Jon.Corey@corey.org",
-                },
-                new IdentityUser
-                {
-                    Id ="Chris.Corey@corey.org",
-                    UserName = "Chris.Corey@corey.org",
-                    Email = "Chris.Corey@corey.org",
-                }
-            };
-
-            return persons;
-        }
-
-        private async Task<IList<string>> GetSampleIdentityRoles()
-        {
-            var roles = new List<string> { "Admin", "User" };
-
-            return roles;
         }
     }
 }

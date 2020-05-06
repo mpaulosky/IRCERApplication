@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using IRCERDataManager.Library.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -60,6 +61,94 @@ namespace TestHelpers
                 new UpperInvariantLookupNormalizer(),
                 new IdentityErrorDescriber(),
                 null);
+        }
+
+        public static IdentityUser GetIdentityUser()
+        {
+            return new IdentityUser
+            {
+                Id = "123",
+                UserName = "test@test.com",
+                PasswordHash = "test",
+                Email = "test@test.com"
+            };
+        }
+
+        public static List<UserModel> GetSamplePeople()
+        {
+            var persons = new List<UserModel>
+            {
+                new UserModel
+                {
+                    Id ="Tim.Corey@corey.org",
+                    FirstName = "Tim",
+                    LastName = "Corey",
+                    EmailAddress = "Tim.Corey@corey.org",
+                },
+                new UserModel
+                {
+                    Id ="Charity.Corey@corey.org",
+                    FirstName = "Charity",
+                    LastName = "Corey",
+                    EmailAddress = "Charity.Corey@corey.org",
+                },
+                new UserModel
+                {
+                    Id ="Jon.Corey@corey.org",
+                    FirstName = "Jon",
+                    LastName = "Corey",
+                    EmailAddress = "Jon.Corey@corey.org",
+                },
+                new UserModel
+                {
+                    Id ="Chris.Corey@corey.org",
+                    FirstName = "Chris",
+                    LastName = "Corey",
+                    EmailAddress = "Chris.Corey@corey.org",
+                }
+            };
+
+            return persons;
+        }
+
+        public static List<IdentityUser> GetSampleIdentityUsers()
+        {
+            var persons = new List<IdentityUser>
+            {
+                new IdentityUser
+                {
+                    Id ="Tim.Corey@corey.org",
+                    UserName = "Tim.Corey@corey.org",
+                    Email = "Tim.Corey@corey.org",
+                },
+                new IdentityUser
+                {
+                    Id ="Charity.Corey@corey.org",
+                    UserName = "Charity.Corey@corey.org",
+                    Email = "Charity.Corey@corey.org",
+                },
+                new IdentityUser
+                {
+                    Id ="Jon.Corey@corey.org",
+                    UserName = "Jon.Corey@corey.org",
+                    Email = "Jon.Corey@corey.org",
+                },
+                new IdentityUser
+                {
+                    Id ="Chris.Corey@corey.org",
+                    UserName = "Chris.Corey@corey.org",
+                    Email = "Chris.Corey@corey.org",
+                }
+            };
+
+            return persons;
+        }
+
+        public static async Task<IList<string>> GetSampleIdentityRoles()
+        {
+            var roles = new List<string> { "Admin", "User" };
+
+            return roles;
         }
     }
 }
