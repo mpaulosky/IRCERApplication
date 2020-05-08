@@ -1,5 +1,7 @@
 ﻿using Autofac.Extras.Moq;
+using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using Xunit;
 
 namespace IRCERApi.Controllers.UnitTests
@@ -49,25 +51,24 @@ namespace IRCERApi.Controllers.UnitTests
         }
 
         // ToDo figure out how to test this Action event
-        //[Fact]
-        //public void Error_ReturnsView()
-        //{
-        //    using (var mock = AutoMock.GetLoose())
-        //    {
-        //        //Arrange
+        [Fact]
+        public void Error_ReturnsView()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                //Arrange
 
-        //        var sut = mock.Create<HomeController>();
+                var sut = mock.Create<HomeController>();
 
-        //        //Act
+                //Act
 
-        //        var result = sut.Error();
+                Action act = () => sut.Error();
 
-        //        //Assert
+                //Assert
 
-        //        Assert.IsType<ViewResult>(result);
-
-        //        Assert.True(result != null);
-        //    }
-        //}
+                act.Should().Throw<NullReferenceException>()
+                    .WithMessage("Object reference not set to an instance of an object.");
+            }
+        }
     }
 }
