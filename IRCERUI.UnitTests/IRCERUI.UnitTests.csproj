@@ -23,10 +23,6 @@
     <ProjectReference Include="..\IRCERApi\IRCERApi.csproj" />
     <ProjectReference Include="..\IRCERUI\IRCERUI.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Shared\" />
-  </ItemGroup>
   
   <ItemGroup>
     <None Update="xunit.runner.json">

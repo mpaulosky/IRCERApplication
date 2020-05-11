@@ -8,8 +8,8 @@ namespace IRCERApi.Controllers.UnitTests
 {
     public class HomeControllerUnitTests
     {
-        [Fact(DisplayName = "")]
-        public void Index_ReturnsView()
+        [Fact()]
+        public void Index_ReturnsView_Test()
         {
             using (var mock = AutoMock.GetLoose())
             {
@@ -30,7 +30,7 @@ namespace IRCERApi.Controllers.UnitTests
         }
 
         [Fact]
-        public void Privacy_ReturnsView()
+        public void Privacy_ReturnsView_Test()
         {
             using (var mock = AutoMock.GetLoose())
             {
@@ -50,9 +50,8 @@ namespace IRCERApi.Controllers.UnitTests
             }
         }
 
-        // ToDo figure out how to test this Action event
         [Fact]
-        public void Error_ReturnsView()
+        public void Error_ReturnsView_Test()
         {
             using (var mock = AutoMock.GetLoose())
             {
