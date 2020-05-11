@@ -29,10 +29,13 @@ namespace IRCERApi.Controllers
             _logger.LogInformation("You have made a request for a Forecast");
 
             var rng = new Random();
+            var c = 0;
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecastModel
             {
                 Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
+                TemperatureC = c = rng.Next(-20, 55),
+                TemperatureF = 32 + (int)(c / 0.5556),
                 Summary = _summaries[rng.Next(_summaries.Length)]
             })
             .ToArray();
