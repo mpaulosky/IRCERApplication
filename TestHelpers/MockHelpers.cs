@@ -267,9 +267,9 @@ namespace TestHelpers
         {
             var roles = new List<IdentityUserRole<string>>
             {
-                new IdentityUserRole<string>{ UserId = "Tim.Corey@corey.org", RoleId = "1" },
-                new IdentityUserRole<string>{ UserId = "Tim.Corey@corey.org", RoleId = "2" },
-                new IdentityUserRole<string>{ UserId = "Tim.Corey@corey.org", RoleId = "3" }
+                new IdentityUserRole<string>{ UserId = "123", RoleId = "1" },
+                new IdentityUserRole<string>{ UserId = "123", RoleId = "2" },
+                new IdentityUserRole<string>{ UserId = "123", RoleId = "3" }
             };
 
             return roles;
