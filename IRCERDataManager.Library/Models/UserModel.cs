@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace IRCERDataManager.Library.Models
 {
+    [ExcludeFromCodeCoverage]
     public class UserModel
     {
         public string Id { get; set; }

@@ -1,7 +1,9 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace IRCERApi.Models
 {
+    [ExcludeFromCodeCoverage]
     public class WeatherForecastModel
     {
         public DateTime Date { get; set; }

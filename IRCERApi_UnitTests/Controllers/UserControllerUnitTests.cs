@@ -89,6 +89,10 @@ namespace IRCERApi.Controllers.UnitTests
                 results.Count.Should().BeGreaterOrEqualTo(4);
 
                 results[0].Id.Should().BeEquivalentTo("Tim.Corey@corey.org");
+
+                results[0].Email.Should().BeEquivalentTo("Tim.Corey@corey.org");
+
+                results[0].Roles.Count.Should().BeLessOrEqualTo(3);
             }
         }
 
