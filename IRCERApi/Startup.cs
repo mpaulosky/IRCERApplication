@@ -100,7 +100,7 @@ namespace IRCERApi
             app.UseSwagger();
             app.UseSwaggerUI(x =>
             {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "TimCo API v1");
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "IRCER API v1");
             });
 
             app.UseEndpoints(endpoints =>

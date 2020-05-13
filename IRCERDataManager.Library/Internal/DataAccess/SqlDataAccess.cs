@@ -5,10 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace IRCERDataManager.Library.Internal.DataAccess
 {
+    [ExcludeFromCodeCoverage]
     public class SqlDataAccess : IDisposable, ISqlDataAccess
     {
         private readonly IConfiguration _config;
