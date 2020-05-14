@@ -35,6 +35,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IRCERData", "IRCERData\IRCE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestHelpers", "TestHelpers\TestHelpers.csproj", "{2CBEA95C-28A8-4FA9-A5D9-6F5671385A6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRCERApi.Integration.Tests", "IRCERApi.Integration.Tests\IRCERApi.Integration.Tests.csproj", "{031F1A64-25B2-465A-B3F9-B4F96872C2B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{2CBEA95C-28A8-4FA9-A5D9-6F5671385A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CBEA95C-28A8-4FA9-A5D9-6F5671385A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CBEA95C-28A8-4FA9-A5D9-6F5671385A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031F1A64-25B2-465A-B3F9-B4F96872C2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031F1A64-25B2-465A-B3F9-B4F96872C2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031F1A64-25B2-465A-B3F9-B4F96872C2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031F1A64-25B2-465A-B3F9-B4F96872C2B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{8763B59F-9B61-48CB-8935-80D383C003AA} = {1EE3CD2B-50B5-4575-A5BD-D08CE0FB92CE}
 		{88197B86-1595-43BF-A9B8-5297FCE574DD} = {8763B59F-9B61-48CB-8935-80D383C003AA}
 		{06BA7C8D-05B0-4FCC-9D87-C6ECFBC6DEAA} = {8C9DA719-70C6-4D6A-A47B-D1827F2B4D49}
+		{031F1A64-25B2-465A-B3F9-B4F96872C2B5} = {C3F25489-2AD6-45F9-B185-06269AA175D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACB23230-5B7A-4727-8233-09783E013A46}

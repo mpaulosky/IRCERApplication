@@ -1,5 +1,5 @@
 using Bunit;
-using Shouldly;
+using FluentAssertions;
 using Xunit;
 
 namespace IRCERUI.Pages.UnitTests
@@ -45,12 +45,12 @@ namespace IRCERUI.Pages.UnitTests
             // Assert
             // Use a Find to query the rendered DOM tree and find the paragraph element
             // and assert that its text content is the expected (calling Trim first to remove insignificant whitespace)
-            cut.Find("p").TextContent.Trim().ShouldBe("Current count: 1");
+            cut.Find("p").TextContent.Trim().Should().BeEquivalentTo("Current count: 1");
 
             // Repeat the above steps to ensure that counter works for multiple clicks
             cut.Find("button").Click();
 
-            cut.Find("p").TextContent.Trim().ShouldBe("Current count: 2");
+            cut.Find("p").TextContent.Trim().Should().BeEquivalentTo("Current count: 2");
         }
     }
 }
