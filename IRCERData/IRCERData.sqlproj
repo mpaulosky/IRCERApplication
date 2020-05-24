@@ -57,5 +57,25 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Views" />
+    <Folder Include="PublishLocations" />
+    <Folder Include="Types" />
+    <Folder Include="PostDeployScripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Stored Procedures\spUser_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spUser_Lookup.sql" />
+    <Build Include="Types\BasicUserDT.sql" />
+    <Build Include="dbo\Stored Procedures\spUser_InsertSet.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployScripts\Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishLocations\IRCERData.publish.xml" />
   </ItemGroup>
 </Project>

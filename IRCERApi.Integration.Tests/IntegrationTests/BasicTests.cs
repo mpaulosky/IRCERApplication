@@ -20,7 +20,9 @@ namespace IRCERApi.Integration.Tests
         [InlineData("/Home/Index", "text/html; charset=utf-8")]
         [InlineData("/Home/Privacy", "text/html; charset=utf-8")]
         [InlineData("/Home/Error", "text/html; charset=utf-8")]
-        public async Task Get_Endpoints_ReturnSuccessAndCorrectContentType(string url, string expected)
+        [InlineData("/Identity/Account/Login", "text/html; charset=utf-8")]
+        [InlineData("/Identity/Account/Register", "text/html; charset=utf-8")]
+        public async Task Get_Endpoints_UsingSharedLayout_ReturnSuccessAndCorrectContentType(string url, string expected)
         {
             // Arrange
 
@@ -60,7 +62,9 @@ namespace IRCERApi.Integration.Tests
             // Assert
 
             response.EnsureSuccessStatusCode(); // Status Code 200-299
+
             var responseString = await response.Content.ReadAsStringAsync();
+
             responseString.Should().Contain(expected);
         }
     }

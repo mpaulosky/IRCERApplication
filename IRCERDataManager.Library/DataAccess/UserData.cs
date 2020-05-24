@@ -20,7 +20,7 @@ namespace IRCERDataManager.Library.DataAccess
                 throw new System.ArgumentException("message", nameof(Id));
             }
 
-            var output = _sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", new { Id }, "TRMData");
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spUser_Lookup", new { Id }, "IRCERData");
 
             return output;
         }
