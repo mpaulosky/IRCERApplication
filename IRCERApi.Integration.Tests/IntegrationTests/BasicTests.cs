@@ -19,6 +19,7 @@ namespace IRCERApi.Integration.Tests
         [InlineData("/", "text/html; charset=utf-8")]
         [InlineData("/Home/Index", "text/html; charset=utf-8")]
         [InlineData("/Home/Privacy", "text/html; charset=utf-8")]
+        [InlineData("/Home/Error", "text/html; charset=utf-8")]
         public async Task Get_Endpoints_ReturnSuccessAndCorrectContentType(string url, string expected)
         {
             // Arrange
@@ -43,6 +44,9 @@ namespace IRCERApi.Integration.Tests
         [InlineData("/Home/Index", "Welcome")]
         [InlineData("/Home/Privacy", "Use this page to detail your site's privacy policy.")]
         [InlineData("/Home/Privacy", "Privacy Policy")]
+        [InlineData("/Home/Error", "Error")]
+        [InlineData("/Identity/Account/Login", "Log in")]
+        [InlineData("/Identity/Account/Register", "Register")]
         public async Task Get_Endpoints_ReturnSuccessAndCorrectPageText(string url, string expected)
         {
             // Arrange
