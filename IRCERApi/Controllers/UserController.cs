@@ -1,5 +1,4 @@
 ﻿using IRCERApi.Data;
-using IRCERApi.Models;
 using IRCERDataManager.Library.DataAccess;
 using IRCERDataManager.Library.Models;
 using Microsoft.AspNetCore.Authorization;

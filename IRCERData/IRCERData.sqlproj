@@ -73,7 +73,7 @@
     <Build Include="dbo\Stored Procedures\spUser_InsertSet.sql" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="PostDeployScripts\Script.PostDeployment1.sql" />
+    <PostDeploy Include="PostDeployScripts\Script.PostDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\IRCERData.publish.xml" />

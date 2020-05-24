@@ -81,6 +81,7 @@ namespace IRCERDataManager.Library.Internal.DataAccess
         }
 
         private bool _isClosed = false;
+        private bool _disposedValue;
 
         public void CommitTransaction()
         {
@@ -100,20 +101,31 @@ namespace IRCERDataManager.Library.Internal.DataAccess
 
         public void Dispose()
         {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
             if (_isClosed == false)
             {
-                try
+                if (disposing)
                 {
-                    CommitTransaction();
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Commit transaction failed in the dispose method.");
+                    try
+                    {
+                        CommitTransaction();
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Commit transaction failed in the dispose method.");
+                    }
                 }
             }
 
             _transaction = null;
             _connection = null;
+            _disposedValue = true;
         }
     }
 }

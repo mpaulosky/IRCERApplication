@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace IRCERApi.Models
+namespace IRCERDataManager.Library.Models
 {
     [ExcludeFromCodeCoverage]
     public class ApplicationUserModel
