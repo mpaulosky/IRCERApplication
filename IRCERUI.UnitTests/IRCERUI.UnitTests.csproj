@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IRCERApi\IRCERApi.csproj" />
     <ProjectReference Include="..\IRCERUI\IRCERUI.csproj" />
   </ItemGroup>
   
