@@ -1,6 +1,6 @@
 ﻿using IRCERApi.Data;
-using IRCERDataManager.Library.DataAccess;
-using IRCERDataManager.Library.Models;
+using IRCERApiDataManager.Library.DataAccess;
+using IRCERApiDataManager.Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

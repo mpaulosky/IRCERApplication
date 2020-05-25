@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace IRCERDataManager.Library.Internal.DataAccess
+namespace IRCERApiDataManager.Library.Internal.DataAccess
 {
     public interface ISqlDataAccess
     {

@@ -27,6 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IRCERDataManager.Library\IRCERDataManager.Library.csproj" />
+    <ProjectReference Include="..\IRCERDataManager.Library\IRCERApiDataManager.Library.csproj" />
   </ItemGroup>
 </Project>

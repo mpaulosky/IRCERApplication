@@ -1,8 +1,8 @@
-﻿using IRCERDataManager.Library.Internal.DataAccess;
-using IRCERDataManager.Library.Models;
+﻿using IRCERApiDataManager.Library.Internal.DataAccess;
+using IRCERApiDataManager.Library.Models;
 using System.Collections.Generic;
 
-namespace IRCERDataManager.Library.DataAccess
+namespace IRCERApiDataManager.Library.DataAccess
 {
     public class UserData : IUserData
     {
@@ -21,6 +21,13 @@ namespace IRCERDataManager.Library.DataAccess
             }
 
             var output = _sql.LoadData<UserModel, dynamic>("dbo.spUser_Lookup", new { Id }, "IRCERData");
+
+            return output;
+        }
+
+        public List<UserModel> GetAllUsers()
+        {
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spUser_GetAll", new { }, "IRCERData");
 
             return output;
         }

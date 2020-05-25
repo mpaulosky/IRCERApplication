@@ -1,10 +1,12 @@
-﻿using IRCERDataManager.Library.Models;
+﻿using IRCERApiDataManager.Library.Models;
 using System.Collections.Generic;
 
-namespace IRCERDataManager.Library.DataAccess
+namespace IRCERApiDataManager.Library.DataAccess
 {
     public interface IUserData
     {
         List<UserModel> GetUserById(string Id);
+
+        List<UserModel> GetAllUsers();
     }
 }

@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{CFAF3894-86A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8C9DA719-70C6-4D6A-A47B-D1827F2B4D49}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRCERDataManager.Library", "IRCERDataManager.Library\IRCERDataManager.Library.csproj", "{B63CAB0F-A5EA-4B64-93FC-7076A75D6C76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRCERApiDataManager.Library", "IRCERDataManager.Library\IRCERApiDataManager.Library.csproj", "{B63CAB0F-A5EA-4B64-93FC-7076A75D6C76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorUI", "BlazorUI", "{9A95C6B0-2890-451C-BF05-844C4D37808C}"
 EndProject
@@ -35,7 +35,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IRCERData", "IRCERData\IRCE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestHelpers", "TestHelpers\TestHelpers.csproj", "{2CBEA95C-28A8-4FA9-A5D9-6F5671385A6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRCERApi.Integration.Tests", "IRCERApi.Integration.Tests\IRCERApi.Integration.Tests.csproj", "{031F1A64-25B2-465A-B3F9-B4F96872C2B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRCERApi.Integration.Tests", "IRCERApi.Integration.Tests\IRCERApi.Integration.Tests.csproj", "{031F1A64-25B2-465A-B3F9-B4F96872C2B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,12 +1,13 @@
 ﻿using Autofac.Extras.Moq;
-using IRCERDataManager.Library.Internal.DataAccess;
-using IRCERDataManager.Library.Models;
+using FluentAssertions;
+using IRCERApiDataManager.Library.Internal.DataAccess;
+using IRCERApiDataManager.Library.Models;
 using Moq;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace IRCERDataManager.Library.DataAccess.UnitTests
+namespace IRCERApiDataManager.Library.DataAccess.UnitTests
 {
     public class UserDataUnitTests
     {
@@ -31,9 +32,9 @@ namespace IRCERDataManager.Library.DataAccess.UnitTests
 
                 //Assert
 
-                Assert.NotNull(result);
+                result.Should().NotBeNull();
 
-                Assert.Equal(userID, result[0].Id);
+                result[0].Id.Should().BeEquivalentTo(userID);
             }
         }
 
@@ -54,7 +55,34 @@ namespace IRCERDataManager.Library.DataAccess.UnitTests
 
                 var ex = Assert.Throws<ArgumentException>(() => sut.GetUserById(userID));
 
-                Assert.Equal("message (Parameter 'Id')", ex.Message);
+                ex.Message.Should().BeEquivalentTo("message (Parameter 'Id')");
+            }
+        }
+
+        [Fact]
+        public void GetAll_ReturnsAListOfUsers()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                //Arrange
+
+                var userID = "test@email.com";
+
+                var userData = new List<UserModel> { new UserModel { Id = userID, FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@test.com", CreatedDate = DateTime.Now } };
+
+                mock.Mock<ISqlDataAccess>().Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>())).Returns(() => userData);
+
+                var sut = mock.Create<UserData>();
+
+                //Act
+
+                var result = sut.GetAllUsers();
+
+                //Assert
+
+                Assert.NotNull(result);
+
+                Assert.Equal(userID, result[0].Id);
             }
         }
     }

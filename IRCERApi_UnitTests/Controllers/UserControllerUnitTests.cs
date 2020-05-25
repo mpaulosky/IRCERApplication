@@ -1,7 +1,7 @@
 ﻿using Autofac.Extras.Moq;
 using FluentAssertions;
 using IRCERApi.Data;
-using IRCERDataManager.Library.DataAccess;
+using IRCERApiDataManager.Library.DataAccess;
 using System.Linq;
 using TestHelpers;
 using Xunit;

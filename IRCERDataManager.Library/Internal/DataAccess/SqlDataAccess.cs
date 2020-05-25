@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace IRCERDataManager.Library.Internal.DataAccess
+namespace IRCERApiDataManager.Library.Internal.DataAccess
 {
     [ExcludeFromCodeCoverage]
     public class SqlDataAccess : IDisposable, ISqlDataAccess
