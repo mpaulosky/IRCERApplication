@@ -99,18 +99,18 @@ namespace TestHelpers
             };
         }
 
-        public static UserModel GetSamplePerson()
-        {
-            var person = new UserModel
-            {
-                Id = "Tim.Corey@corey.org",
-                FirstName = "Tim",
-                LastName = "Corey",
-                EmailAddress = "Tim.Corey@corey.org"
-            };
+        //public static UserModel GetSamplePerson()
+        //{
+        //    var person = new UserModel
+        //    {
+        //        Id = "Tim.Corey@corey.org",
+        //        FirstName = "Tim",
+        //        LastName = "Corey",
+        //        EmailAddress = "Tim.Corey@corey.org"
+        //    };
 
-            return person;
-        }
+        //    return person;
+        //}
 
         public static List<UserModel> GetSamplePeople()
         {
