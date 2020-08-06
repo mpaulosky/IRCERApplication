@@ -2,7 +2,12 @@
 using FluentAssertions;
 using IRCERApi.Data;
 using IRCERApiDataManager.Library.DataAccess;
+using IRCERApiDataManager.Library.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+using Moq;
 using System.Linq;
+using System.Threading;
 using TestHelpers;
 using Xunit;
 
@@ -135,31 +140,77 @@ namespace IRCERApi.Controllers.UnitTests
             }
         }
 
-        [Fact(Skip = "Unable to mock the IdentityUserRole.")]
-        public async void AddARole_Test()
+        [Fact]
+        public void AddARole_IsNotNullButHasError_Test()
         {
             using (var mock = AutoMock.GetLoose())
             {
                 //Arrange
 
+                var userName = "test@test.com";
+
+                var paring = new UserRolePairModel { UserId = userName, RoleName = "Admin" };
+
+                var user = MockHelpers.GetIdentityUser();
+
+                var mockuserData = new Mock<IUserData>();
+                var mockContext = new Mock<ApplicationDbContext>();
+                var mockLogger = new Mock<ILogger<UserController>>();
+
+                var store = new Mock<IUserStore<IdentityUser>>();
+                store.Setup(x => x.FindByIdAsync(It.IsAny<string>(), CancellationToken.None))
+                    .ReturnsAsync(user);
+
+                var mgr = new UserManager<IdentityUser>(store.Object, null, null, null, null, null, null, null, null);
+
+                var sut = new UserController(mockContext.Object, mgr, mockuserData.Object, mockLogger.Object);
+
+                MockHelpers.SetupUser(sut, userName);
+
                 //Act
 
+                var result = sut.AddARole(paring);
+
                 //Assert
+
+                result.Should().NotBeNull();
             }
         }
 
-        [Fact(Skip = "Unable to mock the IdentityUserRole.")]
-        public void RemoveARole_Test()
+        [Fact]
+        public void RemoveARole_IsNotNullButHasError_Test()
         {
             using (var mock = AutoMock.GetLoose())
             {
                 //Arrange
 
+                var userName = "test@test.com";
+
+                var paring = new UserRolePairModel { UserId = userName, RoleName = "Admin" };
+
+                var user = MockHelpers.GetIdentityUser();
+
+                var mockuserData = new Mock<IUserData>();
+                var mockContext = new Mock<ApplicationDbContext>();
+                var mockLogger = new Mock<ILogger<UserController>>();
+
+                var store = new Mock<IUserStore<IdentityUser>>();
+                store.Setup(x => x.FindByIdAsync(It.IsAny<string>(), CancellationToken.None))
+                    .ReturnsAsync(user);
+
+                var mgr = new UserManager<IdentityUser>(store.Object, null, null, null, null, null, null, null, null);
+
+                var sut = new UserController(mockContext.Object, mgr, mockuserData.Object, mockLogger.Object);
+
+                MockHelpers.SetupUser(sut, userName);
+
                 //Act
+
+                var result = sut.RemoveARole(paring);
 
                 //Assert
 
-                Assert.True(false, "This test needs an implementation");
+                result.Should().NotBeNull();
             }
         }
     }
