@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IRCERApiDataManager.Library\IRCERApiDataManager.Library.csproj" />
-    <ProjectReference Include="..\IRCERApi\IRCERApi.csproj" />
+    <ProjectReference Include="..\..\src\IRCERApiDataManager.Library\IRCERApiDataManager.Library.csproj" />
+    <ProjectReference Include="..\..\src\IRCERApi\IRCERApi.csproj" />
   </ItemGroup>
 
 </Project>

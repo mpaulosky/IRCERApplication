@@ -21,10 +21,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\IRCERUI.Library\IRCERUI.Library.csproj" />
-  </ItemGroup>
   
   <ItemGroup>
     <None Update="xunit.runner.json">
