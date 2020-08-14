@@ -18,9 +18,9 @@ namespace IRCERApiDataManager.Library.DataAccess.UnitTests
             {
                 //Arrange
 
-                var userID = "test@email.com";
+                var userID = "john.doe@test.com";
 
-                var userData = new List<UserModel> { new UserModel { Id = userID, FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@test.com", CreatedDate = DateTime.Now } };
+                var userData = MockUserData.User();
 
                 mock.Mock<ISqlDataAccess>().Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>())).Returns(() => userData);
 
@@ -33,19 +33,19 @@ namespace IRCERApiDataManager.Library.DataAccess.UnitTests
                 //Assert
 
                 result.Should().NotBeNull();
-
+                result.Should().HaveCount(1);
                 result[0].Id.Should().BeEquivalentTo(userID);
             }
         }
 
-        [Fact()]
-        public void GetUserById_WithEmptyId_ShouldReturnAnArgumentException_Test()
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public void GetUserById_WithEmptyId_ShouldReturnAnArgumentException_Test(string userID)
         {
             using (var mock = AutoMock.GetLoose())
             {
                 //Arrange
-
-                var userID = "";
 
                 mock.Mock<ISqlDataAccess>();
 
@@ -59,16 +59,16 @@ namespace IRCERApiDataManager.Library.DataAccess.UnitTests
             }
         }
 
-        [Fact]
-        public void GetAll_ReturnsAListOfUsers()
+        [Theory]
+        [InlineData("john.doe@test.com", 0)]
+        [InlineData("jane.doe@test.com", 1)]
+        public void GetAll_ReturnsAListOfUsers(string userID, int index)
         {
             using (var mock = AutoMock.GetLoose())
             {
                 //Arrange
 
-                var userID = "test@email.com";
-
-                var userData = new List<UserModel> { new UserModel { Id = userID, FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@test.com", CreatedDate = DateTime.Now } };
+                var userData = MockUserData.Users();
 
                 mock.Mock<ISqlDataAccess>().Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>())).Returns(() => userData);
 
@@ -80,9 +80,9 @@ namespace IRCERApiDataManager.Library.DataAccess.UnitTests
 
                 //Assert
 
-                Assert.NotNull(result);
-
-                Assert.Equal(userID, result[0].Id);
+                result.Should().NotBeNull();
+                result.Should().HaveCount(2);
+                result[index].Id.Should().BeEquivalentTo(userID);
             }
         }
     }
