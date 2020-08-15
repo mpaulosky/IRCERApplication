@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Support", "Support", "{4D28
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		CODE-OF-CONDUCT.md = CODE-OF-CONDUCT.md
-		CONTRIBUTE.md = CONTRIBUTE.md
+		Contributing.md = Contributing.md
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
