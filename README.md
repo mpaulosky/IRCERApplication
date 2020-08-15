@@ -1,5 +1,7 @@
-[![Build Status](https://dev.azure.com/matthewjpaulosky/IRCERSolution/_apis/build/status/IRCERSolution-ASP.NET%20Core-CI?branchName=develop)](https://dev.azure.com/matthewjpaulosky/IRCERSolution/_build/latest?definitionId=13&branchName=develop)
+# Issue Resolution Check Error Rework (IRCER)
+
 [![Build Status](https://dev.azure.com/matthewjpaulosky/IRCER/_apis/build/status/IRCER%20-%20CI?branchName=master)](https://dev.azure.com/matthewjpaulosky/IRCER/_build/latest?definitionId=14&branchName=master)
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
