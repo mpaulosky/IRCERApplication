@@ -1,24 +1,22 @@
 # Issue Resolution Check Error Rework (IRCER)
 
+A collection of tools to track issues and their resolution (IR) and a tool to check work against a set of criteria for completeness (CER).
+
 [![Build Status](https://dev.azure.com/matthewjpaulosky/IRCER/_apis/build/status/IRCER%20-%20CI?branchName=master)](https://dev.azure.com/matthewjpaulosky/IRCER/_build/latest?definitionId=14&branchName=master)
 
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+## How to Engage, Contribute, and Give Feedback
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Review the [Code Of Conduct](./CODE-OF-CONDUCT.md).
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Some of the best ways to contribute are to try things out, file issues, and make pull-requests.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Check out the [contributing page](./Contributing.md) to see the best places to log issues and start discussions.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+* TODO: Installation process
+* TODO: Software dependencies
+* TODO: Latest releases
+* TODO: API references
+
+## Code of conduct
+
+See the [CODE-OF-CONDUCT](./CODE-OF-CONDUCT.md) document.
