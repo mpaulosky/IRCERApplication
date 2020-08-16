@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>NU1701;NU1702</NoWarn>
+    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
+    <BaseOutputPath>bin\Debug\netcoreapp3.1\</BaseOutputPath>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extras.Moq" Version="5.0.1" />
