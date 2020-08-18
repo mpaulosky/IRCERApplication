@@ -3,14 +3,14 @@ using Xunit;
 
 namespace IRCERUI.Pages.UnitTests
 {
-    public class IndextComponentUnitTests : ComponentTestFixture
-    {
-        [Fact]
-        public void Component1RendersCorrectly()
-        {
-            var cut = RenderComponent<Pages.Index>();
+	public class IndextComponentUnitTests : ComponentTestFixture
+	{
+		[Fact]
+		public void Component1RendersCorrectly()
+		{
+			var cut = RenderComponent<Pages.Index>();
 
-            var expectedHtml = @"<h1>Hello, world!</h1>
+			var expectedHtml = @"<h1>Hello, world!</h1>
                                 Welcome to your new app.
                                 <div class='alert alert-secondary mt-4' role='alert'>
                                     <span class='oi oi-pencil mr-2' aria-hidden='true'></span>
@@ -22,7 +22,7 @@ namespace IRCERUI.Pages.UnitTests
                                   and tell us what you think.
                                 </div>";
 
-            cut.MarkupMatches(expectedHtml);
-        }
-    }
+			cut.MarkupMatches(expectedHtml);
+		}
+	}
 }

@@ -1,74 +1,72 @@
 ﻿using Autofac.Extras.Moq;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using Xunit;
 
 namespace IRCERApi.Controllers.UnitTests
 {
-    public class HomeControllerUnitTests
-    {
-        [Fact()]
-        public void Index_ReturnsView_Test()
-        {
-            using (var mock = AutoMock.GetLoose())
-            {
-                //Arrange
+	public class HomeControllerUnitTests
+	{
+		[Fact()]
+		public void Index_ReturnsView_Test()
+		{
+			using (var mock = AutoMock.GetLoose())
+			{
+				//Arrange
 
-                var sut = mock.Create<HomeController>();
+				var sut = mock.Create<HomeController>();
 
-                //Act
+				//Act
 
-                var result = sut.Index();
+				var result = sut.Index();
 
-                //Assert
+				//Assert
 
-                Assert.IsType<ViewResult>(result);
+				Assert.IsType<ViewResult>(result);
 
-                Assert.True(result != null);
-            }
-        }
+				Assert.True(result != null);
+			}
+		}
 
-        [Fact]
-        public void Privacy_ReturnsView_Test()
-        {
-            using (var mock = AutoMock.GetLoose())
-            {
-                //Arrange
+		[Fact]
+		public void Privacy_ReturnsView_Test()
+		{
+			using (var mock = AutoMock.GetLoose())
+			{
+				//Arrange
 
-                var sut = mock.Create<HomeController>();
+				var sut = mock.Create<HomeController>();
 
-                //Act
+				//Act
 
-                var result = sut.Privacy();
+				var result = sut.Privacy();
 
-                //Assert
+				//Assert
 
-                Assert.IsType<ViewResult>(result);
+				Assert.IsType<ViewResult>(result);
 
-                Assert.True(result != null);
-            }
-        }
+				Assert.True(result != null);
+			}
+		}
 
-        //[Fact]
-        //public void Error_ReturnsView_Test()
-        //{
-        //    using (var mock = AutoMock.GetLoose())
-        //    {
-        //        //Arrange
+		//[Fact]
+		//public void Error_ReturnsView_Test()
+		//{
+		//    using (var mock = AutoMock.GetLoose())
+		//    {
+		//        //Arrange
 
-        //        var sut = mock.Create<HomeController>();
+		//        var sut = mock.Create<HomeController>();
 
-        //        //Act
+		//        //Act
 
-        //        Action act = () => sut.Error();
+		//        Action act = () => sut.Error();
 
-        //        //Assert
+		//        //Assert
 
-        //        //act.Should().Throw<NullReferenceException>().WithMessage("Object reference not set to an instance of an object.");
+		//        //act.Should().Throw<NullReferenceException>().WithMessage("Object reference not set to an instance of an object.");
 
-        //        Assert.IsType<ViewResult>(act);
-        //    }
-        //}
-    }
+		//        Assert.IsType<ViewResult>(act);
+		//    }
+		//}
+	}
 }

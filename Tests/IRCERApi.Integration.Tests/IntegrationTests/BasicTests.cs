@@ -6,7 +6,11 @@ using Xunit;
 namespace IRCERApi.Integration.Tests
 {
 	public class BasicTests
+<<<<<<< HEAD
 				: IClassFixture<WebApplicationFactory<Startup>>
+=======
+			: IClassFixture<WebApplicationFactory<Startup>>
+>>>>>>> develop
 	{
 		private readonly WebApplicationFactory<Startup> _factory;
 
@@ -25,18 +29,30 @@ namespace IRCERApi.Integration.Tests
 		{
 			// Arrange
 
+<<<<<<< HEAD
 			System.Net.Http.HttpClient client = _factory.CreateClient();
 
 			// Act
 
 			System.Net.Http.HttpResponseMessage response = await client.GetAsync(url);
+=======
+			var client = _factory.CreateClient();
+
+			// Act
+
+			var response = await client.GetAsync(url);
+>>>>>>> develop
 
 			// Assert
 
 			response.EnsureSuccessStatusCode(); // Status Code 200-299
 
+<<<<<<< HEAD
 			response.Content.Headers.ContentType.ToString()
 					.Should().BeEquivalentTo(expected);
+=======
+			response.Content.Headers.ContentType.ToString().Should().BeEquivalentTo(expected);
+>>>>>>> develop
 		}
 
 		[Theory]
@@ -51,19 +67,35 @@ namespace IRCERApi.Integration.Tests
 		{
 			// Arrange
 
+<<<<<<< HEAD
 			System.Net.Http.HttpClient client = _factory.CreateClient();
 
 			// Act
 
 			System.Net.Http.HttpResponseMessage response = await client.GetAsync(url);
+=======
+			var client = _factory.CreateClient();
+
+			// Act
+
+			var response = await client.GetAsync(url);
+>>>>>>> develop
 
 			// Assert
 
 			response.EnsureSuccessStatusCode(); // Status Code 200-299
 
+<<<<<<< HEAD
 			string responseString = await response.Content.ReadAsStringAsync();
+=======
+			var responseString = await response.Content.ReadAsStringAsync();
+>>>>>>> develop
 
 			responseString.Should().Contain(expected);
 		}
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> develop

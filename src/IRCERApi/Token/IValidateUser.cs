@@ -2,8 +2,8 @@
 
 namespace IRCERApi.Data
 {
-    public interface IValidateUser
-    {
-        Task<bool> IsValidUsernameAndPassword(string username, string password);
-    }
+	public interface IValidateUser
+	{
+		Task<bool> IsValidUsernameAndPassword(string username, string password);
+	}
 }

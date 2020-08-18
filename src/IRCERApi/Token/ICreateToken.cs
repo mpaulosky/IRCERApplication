@@ -2,8 +2,8 @@
 
 namespace IRCERApi.Token
 {
-    public interface ICreateToken
-    {
-        Task<dynamic> GenerateToken(string username);
-    }
+	public interface ICreateToken
+	{
+		Task<dynamic> GenerateToken(string username);
+	}
 }

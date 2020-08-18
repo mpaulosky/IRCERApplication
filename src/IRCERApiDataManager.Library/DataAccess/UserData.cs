@@ -4,32 +4,32 @@ using System.Collections.Generic;
 
 namespace IRCERApiDataManager.Library.DataAccess
 {
-    public class UserData : IUserData
-    {
-        private readonly ISqlDataAccess _sql;
+	public class UserData : IUserData
+	{
+		private readonly ISqlDataAccess _sql;
 
-        public UserData(ISqlDataAccess sql)
-        {
-            _sql = sql;
-        }
+		public UserData(ISqlDataAccess sql)
+		{
+			_sql = sql;
+		}
 
-        public List<UserModel> GetUserById(string Id)
-        {
-            if (string.IsNullOrWhiteSpace(Id))
-            {
-                throw new System.ArgumentException("message", nameof(Id));
-            }
+		public List<UserModel> GetUserById(string Id)
+		{
+			if (string.IsNullOrWhiteSpace(Id))
+			{
+				throw new System.ArgumentException("message", nameof(Id));
+			}
 
-            var output = _sql.LoadData<UserModel, dynamic>("dbo.spUser_Lookup", new { Id }, "IRCERData");
+			var output = _sql.LoadData<UserModel, dynamic>("dbo.spUser_Lookup", new { Id }, "IRCERData");
 
-            return output;
-        }
+			return output;
+		}
 
-        public List<UserModel> GetAllUsers()
-        {
-            var output = _sql.LoadData<UserModel, dynamic>("dbo.spUser_GetAll", new { }, "IRCERData");
+		public List<UserModel> GetAllUsers()
+		{
+			var output = _sql.LoadData<UserModel, dynamic>("dbo.spUser_GetAll", new { }, "IRCERData");
 
-            return output;
-        }
-    }
+			return output;
+		}
+	}
 }
