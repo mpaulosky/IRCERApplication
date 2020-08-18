@@ -67,10 +67,10 @@ namespace IRCERApi
 				setup.SwaggerDoc(
 									"v1",
 									new OpenApiInfo
-							{
-								Title = "IRCER API",
-								Version = "v1"
-							});
+									{
+										Title = "IRCER API",
+										Version = "v1"
+									});
 			});
 		}
 
