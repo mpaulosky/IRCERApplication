@@ -35,6 +35,7 @@ namespace IRCERApi.Integration.Tests
 			// Act
 
 			System.Net.Http.HttpResponseMessage response = await client.GetAsync(url);
+
 =======
 			var client = _factory.CreateClient();
 
@@ -42,7 +43,6 @@ namespace IRCERApi.Integration.Tests
 
 			var response = await client.GetAsync(url);
 >>>>>>> develop
-
 			// Assert
 
 			response.EnsureSuccessStatusCode(); // Status Code 200-299
@@ -73,6 +73,7 @@ namespace IRCERApi.Integration.Tests
 			// Act
 
 			System.Net.Http.HttpResponseMessage response = await client.GetAsync(url);
+
 =======
 			var client = _factory.CreateClient();
 
@@ -80,17 +81,16 @@ namespace IRCERApi.Integration.Tests
 
 			var response = await client.GetAsync(url);
 >>>>>>> develop
-
 			// Assert
 
 			response.EnsureSuccessStatusCode(); // Status Code 200-299
 
 <<<<<<< HEAD
 			string responseString = await response.Content.ReadAsStringAsync();
+
 =======
 			var responseString = await response.Content.ReadAsStringAsync();
 >>>>>>> develop
-
 			responseString.Should().Contain(expected);
 		}
 	}
