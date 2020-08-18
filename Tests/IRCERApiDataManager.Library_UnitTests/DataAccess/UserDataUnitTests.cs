@@ -4,7 +4,6 @@ using IRCERApiDataManager.Library.Internal.DataAccess;
 using IRCERApiDataManager.Library.Models;
 using Moq;
 using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace IRCERApiDataManager.Library.DataAccess.UnitTests

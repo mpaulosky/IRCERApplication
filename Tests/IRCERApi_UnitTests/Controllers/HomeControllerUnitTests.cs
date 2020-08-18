@@ -1,7 +1,5 @@
 ﻿using Autofac.Extras.Moq;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using Xunit;
 
 namespace IRCERApi.Controllers.UnitTests
