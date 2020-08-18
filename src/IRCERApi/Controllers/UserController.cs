@@ -63,8 +63,7 @@ namespace IRCERApi.Controllers.UnitTests
 					Email = user.Email
 				};
 
-				u.Roles = userRoles.Where(x => x.UserId == u.Id)
-						.ToDictionary(key => key.RoleId, val => val.Name);
+				u.Roles = userRoles.Where(x => x.UserId == u.Id).ToDictionary(key => key.RoleId, val => val.Name);
 
 				output.Add(u);
 			}
@@ -113,3 +112,4 @@ namespace IRCERApi.Controllers.UnitTests
 		}
 	}
 }
+

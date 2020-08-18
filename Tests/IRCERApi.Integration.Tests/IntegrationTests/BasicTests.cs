@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using IRCERUI;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Threading.Tasks;
 using Xunit;
@@ -7,7 +6,7 @@ using Xunit;
 namespace IRCERApi.Integration.Tests
 {
 	public class BasicTests
-			: IClassFixture<WebApplicationFactory<Startup>>
+				: IClassFixture<WebApplicationFactory<Startup>>
 	{
 		private readonly WebApplicationFactory<Startup> _factory;
 

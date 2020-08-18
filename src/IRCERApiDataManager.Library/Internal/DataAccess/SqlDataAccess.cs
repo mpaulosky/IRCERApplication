@@ -81,7 +81,6 @@ namespace IRCERApiDataManager.Library.Internal.DataAccess
 		}
 
 		private bool _isClosed = false;
-		private bool _disposedValue;
 
 		public void CommitTransaction()
 		{
@@ -125,7 +124,6 @@ namespace IRCERApiDataManager.Library.Internal.DataAccess
 
 			_transaction = null;
 			_connection = null;
-			_disposedValue = true;
 		}
 	}
 }

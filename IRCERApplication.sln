@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IRCERUI Tests", "IRCERUI Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Support", "Support", "{4D28C0B0-7E99-4CD6-AFAD-89220A9ACCF4}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		CODE-OF-CONDUCT.md = CODE-OF-CONDUCT.md
@@ -48,6 +49,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRCERUI.Library", "src\IRCERUI.Library\IRCERUI.Library.csproj", "{C86D4071-C6A3-4C75-BE1F-0658EBCD9E76}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IRCERData", "src\IRCERData\IRCERData.sqlproj", "{06BA7C8D-05B0-4FCC-9D87-C6ECFBC6DEAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E74D71D7-3B78-4B2A-ABAA-EDDE36D90D25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
