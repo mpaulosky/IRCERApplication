@@ -2,7 +2,7 @@
 
 A collection of tools to track issues and their resolution (IR) and a tool to check work against a set of criteria for completeness (CER).
 
-[![Build Status](https://dev.azure.com/matthewjpaulosky/IRCER/_apis/build/status/IRCER%20-%20CI?branchName=master)](https://dev.azure.com/matthewjpaulosky/IRCER/_build/latest?definitionId=14&branchName=master)
+[![Build Status](https://dev.azure.com/matthewjpaulosky/IRCER/_apis/build/status/IRCER%20-%20CI?branchName=master)](https://dev.azure.com/matthewjpaulosky/IRCER/_build/latest?definitionId=14&branchName=master)  ![Format code on PR or Push ](https://github.com/mpaulosky/IRCERApplication/workflows/Format%20code%20on%20PR%20or%20Push/badge.svg?branch=develop)
 
 ## How to Engage, Contribute, and Give Feedback
 
