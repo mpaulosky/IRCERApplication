@@ -5,29 +5,29 @@ using Xunit;
 
 namespace IRCERApi.Controllers.UnitTests
 {
-    public class WeatherForecastControllerUnitTests
-    {
-        [Fact]
-        public void Get_ShouldReturnAListOfForecasts()
-        {
-            using (var mock = AutoMock.GetLoose())
-            {
-                //Arrange
+	public class WeatherForecastControllerUnitTests
+	{
+		[Fact]
+		public void Get_ShouldReturnAListOfForecasts()
+		{
+			using (var mock = AutoMock.GetLoose())
+			{
+				//Arrange
 
-                mock.Mock<ILogger>();
+				mock.Mock<ILogger>();
 
-                var sut = mock.Create<WeatherForecastController>();
+				var sut = mock.Create<WeatherForecastController>();
 
-                //Act
+				//Act
 
-                var result = sut.Get();
+				var result = sut.Get();
 
-                //Assert
+				//Assert
 
-                Assert.True(result != null);
+				Assert.True(result != null);
 
-                Assert.True(result.Count() > 3);
-            }
-        }
-    }
+				Assert.True(result.Count() > 3);
+			}
+		}
+	}
 }

@@ -8,66 +8,66 @@ using Xunit;
 
 namespace IRCERApi.Controllers.UnitTests
 {
-    public class TokenControllerUnitTests
-    {
-        [Fact]
-        public async Task Create_WithValidUser_ShouldReturnToken()
-        {
-            using (var mock = AutoMock.GetLoose())
-            {
-                //Arrange
+	public class TokenControllerUnitTests
+	{
+		[Fact]
+		public async Task Create_WithValidUser_ShouldReturnToken()
+		{
+			using (var mock = AutoMock.GetLoose())
+			{
+				//Arrange
 
-                var userName = "Test";
-                var token = "token";
-                var password = "test";
+				var userName = "Test";
+				var token = "token";
+				var password = "test";
 
-                mock.Mock<IValidateUser>()
-                    .Setup(x => x.IsValidUsernameAndPassword(userName, It.IsAny<string>())).ReturnsAsync(true);
+				mock.Mock<IValidateUser>()
+						.Setup(x => x.IsValidUsernameAndPassword(userName, It.IsAny<string>())).ReturnsAsync(true);
 
-                mock.Mock<ICreateToken>()
-                    .Setup(x => x.GenerateToken(It.IsAny<string>()))
-                    .ReturnsAsync(() => new { token, userName });
+				mock.Mock<ICreateToken>()
+						.Setup(x => x.GenerateToken(It.IsAny<string>()))
+						.ReturnsAsync(() => new { token, userName });
 
-                var sut = mock.Create<TokenController>();
+				var sut = mock.Create<TokenController>();
 
-                //Act
+				//Act
 
-                var result = await sut.Create(userName, password, "test");
+				var result = await sut.Create(userName, password, "test");
 
-                //Assert
+				//Assert
 
-                Assert.IsType<ObjectResult>(result);
+				Assert.IsType<ObjectResult>(result);
 
-                Assert.True(result != null);
-            }
-        }
+				Assert.True(result != null);
+			}
+		}
 
-        [Fact]
-        public async Task Create_WithInValidUser_ShouldReturnBadRequest()
-        {
-            using (var mock = AutoMock.GetLoose())
-            {
-                //Arrange
+		[Fact]
+		public async Task Create_WithInValidUser_ShouldReturnBadRequest()
+		{
+			using (var mock = AutoMock.GetLoose())
+			{
+				//Arrange
 
-                var userName = "Test";
-                var password = "test";
+				var userName = "Test";
+				var password = "test";
 
-                mock.Mock<IValidateUser>();
+				mock.Mock<IValidateUser>();
 
-                mock.Mock<ICreateToken>();
+				mock.Mock<ICreateToken>();
 
-                var sut = mock.Create<TokenController>();
+				var sut = mock.Create<TokenController>();
 
-                //Act
+				//Act
 
-                var result = await sut.Create(userName, password, "test");
+				var result = await sut.Create(userName, password, "test");
 
-                //Assert
+				//Assert
 
-                Assert.IsType<BadRequestResult>(result);
+				Assert.IsType<BadRequestResult>(result);
 
-                Assert.True(result != null);
-            }
-        }
-    }
+				Assert.True(result != null);
+			}
+		}
+	}
 }

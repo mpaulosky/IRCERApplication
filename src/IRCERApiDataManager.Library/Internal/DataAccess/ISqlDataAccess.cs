@@ -2,24 +2,24 @@
 
 namespace IRCERApiDataManager.Library.Internal.DataAccess
 {
-    public interface ISqlDataAccess
-    {
-        void CommitTransaction();
+	public interface ISqlDataAccess
+	{
+		void CommitTransaction();
 
-        void Dispose();
+		void Dispose();
 
-        string GetConnectionString(string name);
+		string GetConnectionString(string name);
 
-        List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName);
+		List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName);
 
-        List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters);
+		List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters);
 
-        void RollbackTransaction();
+		void RollbackTransaction();
 
-        void SaveData<T>(string storedProcedure, T parameters, string connectionStringName);
+		void SaveData<T>(string storedProcedure, T parameters, string connectionStringName);
 
-        void SaveDataInTransaction<T>(string storedProcedure, T parameters);
+		void SaveDataInTransaction<T>(string storedProcedure, T parameters);
 
-        void StartTransaction(string connectionStringName);
-    }
+		void StartTransaction(string connectionStringName);
+	}
 }

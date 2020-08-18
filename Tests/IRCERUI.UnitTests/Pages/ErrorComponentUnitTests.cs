@@ -3,14 +3,14 @@ using Xunit;
 
 namespace IRCERUI.Pages.UnitTests
 {
-    public class ErrorComponentUnitTests : ComponentTestFixture
-    {
-        [Fact]
-        public void Component1RendersCorrectly()
-        {
-            var cut = RenderComponent<Error>();
+	public class ErrorComponentUnitTests : ComponentTestFixture
+	{
+		[Fact]
+		public void Component1RendersCorrectly()
+		{
+			var cut = RenderComponent<Error>();
 
-            var expectedHtml = @"<h1 class='text-danger'>Error.</h1>
+			var expectedHtml = @"<h1 class='text-danger'>Error.</h1>
                                 <h2 class='text-danger'>An error occurred while processing your request.</h2>
 
                                 <h3>Development Mode</h3>
@@ -24,7 +24,7 @@ namespace IRCERUI.Pages.UnitTests
                                     and restarting the app.
                                 </p>";
 
-            cut.MarkupMatches(expectedHtml);
-        }
-    }
+			cut.MarkupMatches(expectedHtml);
+		}
+	}
 }

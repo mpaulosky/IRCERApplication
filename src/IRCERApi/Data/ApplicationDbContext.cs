@@ -4,15 +4,15 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace IRCERApi.Data
 {
-    [ExcludeFromCodeCoverage]
-    public class ApplicationDbContext : IdentityDbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
+	[ExcludeFromCodeCoverage]
+	public class ApplicationDbContext : IdentityDbContext
+	{
+		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+		{
+		}
 
-        public ApplicationDbContext()
-        {
-        }
-    }
+		public ApplicationDbContext()
+		{
+		}
+	}
 }
