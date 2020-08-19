@@ -1,8 +1,8 @@
 ﻿using Autofac.Extras.Moq;
 using FluentAssertions;
-using IRCERApiDataManager.Library.Data;
-using IRCERApiDataManager.Library.DataAccess;
-using IRCERApiDataManager.Library.Models;
+using IRCERApi.Library.Data;
+using IRCERApi.Library.DataAccess;
+using IRCERApi.Library.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -22,196 +22,191 @@ namespace IRCERApi.Controllers.UnitTests
 		[InlineData("Chris.Corey@corey.org")]
 		public void GetById_ShouldReturnTheLoggedOnUser_Test(string userName)
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userData = MockHelpers.GetSamplePeople().Where(a => a.Id == userName).ToList();
+			using var mock = AutoMock.GetLoose();
 
-				mock.Mock<IUserData>()
-						.Setup(x => x.GetUserById(userData[0].Id))
-						.Returns(userData);
+			var userData = MockHelpers.GetSamplePeople().Where(a => a.Id == userName).ToList();
 
-				var sut = mock.Create<UserController>();
+			mock.Mock<IUserData>()
+					.Setup(x => x.GetUserById(userData[0].Id))
+					.Returns(userData);
 
-				MockHelpers.SetupUser(sut, userName);
+			var sut = mock.Create<UserController>();
 
-				//Act
+			MockHelpers.SetupUser(sut, userName);
 
-				var result = sut.GetById();
+			//Act
 
-				//Assert
+			var result = sut.GetById();
 
-				result.Should().NotBeNull();
+			//Assert
 
-				sut.User.Identity.Name.Should().BeEquivalentTo(userName);
+			result.Should().NotBeNull();
 
-				result.Id.Should().BeEquivalentTo(userName);
-			}
+			sut.User.Identity.Name.Should().BeEquivalentTo(userName);
+
+			result.Id.Should().BeEquivalentTo(userName);
 		}
 
 		[Fact()]
 		public void GetAllUsers_ShouldReturnAllUsers_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userData = MockHelpers.GetSamplePeople();
+			using var mock = AutoMock.GetLoose();
 
-				var userRoles = MockHelpers.GetSampleIdentityUserRoles();
+			var userData = MockHelpers.GetSamplePeople();
 
-				var mockUserRoles = MockHelpers.CreateDbSetMock(userRoles);
+			var userRoles = MockHelpers.GetSampleIdentityUserRoles();
 
-				var users = MockHelpers.GetSampleIdentityUsers();
+			var mockUserRoles = MockHelpers.CreateDbSetMock(userRoles);
 
-				var mockUsers = MockHelpers.CreateDbSetMock(users);
+			var users = MockHelpers.GetSampleIdentityUsers();
 
-				var roles = MockHelpers.GetIdentityRoles();
+			var mockUsers = MockHelpers.CreateDbSetMock(users);
 
-				var mockRoles = MockHelpers.CreateDbSetMock(roles);
+			var roles = MockHelpers.GetIdentityRoles();
 
-				mock.Mock<ApplicationDbContext>().Setup(x => x.Roles).Returns(mockRoles.Object);
-				mock.Mock<ApplicationDbContext>().Setup(x => x.Users).Returns(mockUsers.Object);
-				mock.Mock<ApplicationDbContext>().Setup(x => x.UserRoles).Returns(mockUserRoles.Object);
+			var mockRoles = MockHelpers.CreateDbSetMock(roles);
 
-				mock.Mock<IUserData>()
-						.Setup(x => x.GetUserById(userData[0].Id))
-						.Returns(userData);
+			mock.Mock<ApplicationDbContext>().Setup(x => x.Roles).Returns(mockRoles.Object);
+			mock.Mock<ApplicationDbContext>().Setup(x => x.Users).Returns(mockUsers.Object);
+			mock.Mock<ApplicationDbContext>().Setup(x => x.UserRoles).Returns(mockUserRoles.Object);
 
-				var sut = mock.Create<UserController>();
+			mock.Mock<IUserData>()
+					.Setup(x => x.GetUserById(userData[0].Id))
+					.Returns(userData);
 
-				MockHelpers.SetupUser(sut, userData[0].Id);
+			var sut = mock.Create<UserController>();
 
-				//Act
+			MockHelpers.SetupUser(sut, userData[0].Id);
 
-				var results = sut.GetAllUsers();
+			//Act
 
-				//Assert
+			var results = sut.GetAllUsers();
 
-				sut.Should().NotBeNull();
+			//Assert
 
-				results.Count.Should().BeGreaterOrEqualTo(4);
+			sut.Should().NotBeNull();
 
-				results[0].Id.Should().BeEquivalentTo("Tim.Corey@corey.org");
+			results.Count.Should().BeGreaterOrEqualTo(4);
 
-				results[0].Email.Should().BeEquivalentTo("Tim.Corey@corey.org");
+			results[0].Id.Should().BeEquivalentTo("Tim.Corey@corey.org");
 
-				results[0].Roles.Count.Should().BeLessOrEqualTo(3);
-			}
+			results[0].Email.Should().BeEquivalentTo("Tim.Corey@corey.org");
+
+			results[0].Roles.Count.Should().BeLessOrEqualTo(3);
 		}
 
 		[Fact]
 		public void GetAllRoles_ShouldReturnAllRoles_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userData = MockHelpers.GetSamplePeople();
+			using var mock = AutoMock.GetLoose();
 
-				var roles = MockHelpers.GetIdentityRoles();
+			var userData = MockHelpers.GetSamplePeople();
 
-				var mockRoles = MockHelpers.CreateDbSetMock(roles);
+			var roles = MockHelpers.GetIdentityRoles();
 
-				mock.Mock<ApplicationDbContext>().Setup(x => x.Roles).Returns(mockRoles.Object);
+			var mockRoles = MockHelpers.CreateDbSetMock(roles);
 
-				mock.Mock<IUserData>()
-						.Setup(x => x.GetUserById(userData[0].Id))
-						.Returns(userData);
+			mock.Mock<ApplicationDbContext>().Setup(x => x.Roles).Returns(mockRoles.Object);
 
-				var sut = mock.Create<UserController>();
+			mock.Mock<IUserData>()
+					.Setup(x => x.GetUserById(userData[0].Id))
+					.Returns(userData);
 
-				MockHelpers.SetupUser(sut, userData[0].Id);
+			var sut = mock.Create<UserController>();
 
-				//Act
+			MockHelpers.SetupUser(sut, userData[0].Id);
 
-				var results = sut.GetAllRoles();
+			//Act
 
-				//Assert
+			var results = sut.GetAllRoles();
 
-				results.Count.Should().BeGreaterOrEqualTo(3);
+			//Assert
 
-				results.Values.Should().ContainMatch("Admin");
+			results.Count.Should().BeGreaterOrEqualTo(3);
 
-				results.Values.Should().ContainMatch("User");
+			results.Values.Should().ContainMatch("Admin");
 
-				results.Values.Should().ContainMatch("Test");
-			}
+			results.Values.Should().ContainMatch("User");
+
+			results.Values.Should().ContainMatch("Test");
 		}
 
 		[Fact]
 		public void AddARole_IsNotNullButHasError_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userName = "test@test.com";
+			using var mock = AutoMock.GetLoose();
 
-				var paring = new UserRolePairModel { UserId = userName, RoleName = "Admin" };
+			var userName = "test@test.com";
 
-				var user = MockHelpers.GetIdentityUser();
+			var paring = new UserRolePairModel { UserId = userName, RoleName = "Admin" };
 
-				var mockuserData = new Mock<IUserData>();
-				var mockContext = new Mock<ApplicationDbContext>();
-				var mockLogger = new Mock<ILogger<UserController>>();
+			var user = MockHelpers.GetIdentityUser();
 
-				var store = new Mock<IUserStore<IdentityUser>>();
-				store.Setup(x => x.FindByIdAsync(It.IsAny<string>(), CancellationToken.None))
-						.ReturnsAsync(user);
+			var mockuserData = new Mock<IUserData>();
+			var mockContext = new Mock<ApplicationDbContext>();
+			var mockLogger = new Mock<ILogger<UserController>>();
 
-				var mgr = new UserManager<IdentityUser>(store.Object, null, null, null, null, null, null, null, null);
+			var store = new Mock<IUserStore<IdentityUser>>();
+			store.Setup(x => x.FindByIdAsync(It.IsAny<string>(), CancellationToken.None))
+					.ReturnsAsync(user);
 
-				var sut = new UserController(mockContext.Object, mgr, mockuserData.Object, mockLogger.Object);
+			var mgr = new UserManager<IdentityUser>(store.Object, null, null, null, null, null, null, null, null);
 
-				MockHelpers.SetupUser(sut, userName);
+			var sut = new UserController(mockContext.Object, mgr, mockuserData.Object, mockLogger.Object);
 
-				//Act
+			MockHelpers.SetupUser(sut, userName);
 
-				var result = sut.AddARole(paring);
+			//Act
 
-				//Assert
+			var result = sut.AddARole(paring);
 
-				result.Should().NotBeNull();
-			}
+			//Assert
+
+			result.Should().NotBeNull();
 		}
 
 		[Fact]
 		public void RemoveARole_IsNotNullButHasError_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userName = "test@test.com";
+			using var mock = AutoMock.GetLoose();
 
-				var paring = new UserRolePairModel { UserId = userName, RoleName = "Admin" };
+			var userName = "test@test.com";
 
-				var user = MockHelpers.GetIdentityUser();
+			var paring = new UserRolePairModel { UserId = userName, RoleName = "Admin" };
 
-				var mockuserData = new Mock<IUserData>();
-				var mockContext = new Mock<ApplicationDbContext>();
-				var mockLogger = new Mock<ILogger<UserController>>();
+			var user = MockHelpers.GetIdentityUser();
 
-				var store = new Mock<IUserStore<IdentityUser>>();
-				store.Setup(x => x.FindByIdAsync(It.IsAny<string>(), CancellationToken.None))
-						.ReturnsAsync(user);
+			var mockuserData = new Mock<IUserData>();
+			var mockContext = new Mock<ApplicationDbContext>();
+			var mockLogger = new Mock<ILogger<UserController>>();
 
-				var mgr = new UserManager<IdentityUser>(store.Object, null, null, null, null, null, null, null, null);
+			var store = new Mock<IUserStore<IdentityUser>>();
+			store.Setup(x => x.FindByIdAsync(It.IsAny<string>(), CancellationToken.None))
+					.ReturnsAsync(user);
 
-				var sut = new UserController(mockContext.Object, mgr, mockuserData.Object, mockLogger.Object);
+			var mgr = new UserManager<IdentityUser>(store.Object, null, null, null, null, null, null, null, null);
 
-				MockHelpers.SetupUser(sut, userName);
+			var sut = new UserController(mockContext.Object, mgr, mockuserData.Object, mockLogger.Object);
 
-				//Act
+			MockHelpers.SetupUser(sut, userName);
 
-				var result = sut.RemoveARole(paring);
+			//Act
 
-				//Assert
+			var result = sut.RemoveARole(paring);
 
-				result.Should().NotBeNull();
-			}
+			//Assert
+
+			result.Should().NotBeNull();
 		}
 	}
 }

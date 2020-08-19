@@ -1,12 +1,13 @@
 ﻿using Autofac.Extras.Moq;
 using FluentAssertions;
-using IRCERApiDataManager.Library.Internal.DataAccess;
-using IRCERApiDataManager.Library.Models;
+using IRCERApi.Library.DataAccess;
+using IRCERApi.Library.Internal.DataAccess;
+using IRCERApi.Library.Models;
 using Moq;
 using System;
 using Xunit;
 
-namespace IRCERApiDataManager.Library.DataAccess.UnitTests
+namespace IRCERApi.Library.DataAccess.UnitTests
 {
 	public class UserDataUnitTests
 	{

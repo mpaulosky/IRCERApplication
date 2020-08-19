@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 
-namespace IRCERApiDataManager.Library.Data
+namespace IRCERApi.Library.Data
 {
 	[ExcludeFromCodeCoverage]
 	public class ApplicationDbContext : IdentityDbContext

@@ -1,8 +1,8 @@
-﻿using IRCERApiDataManager.Library.Internal.DataAccess;
-using IRCERApiDataManager.Library.Models;
+﻿using IRCERApi.Library.Internal.DataAccess;
+using IRCERApi.Library.Models;
 using System.Collections.Generic;
 
-namespace IRCERApiDataManager.Library.DataAccess
+namespace IRCERApi.Library.DataAccess
 {
 	public class UserData : IUserData
 	{

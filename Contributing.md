@@ -30,13 +30,13 @@ This project is designed to be built and run primarily with Visual Studio 2019. 
 /docs                                   -- User Documentation
 /src                                    -- Usage Samples
   IRCERApi
-  IRCERApiDataManager.Library           -- Shell project with WebAssembly config
+  IRCERApi.Library           -- Shell project with WebAssembly config
   IRCERUI                               -- Shared project with Server-Side config
   IRCERUILibrary
 /tests                                  -- Unit and Integration tests
   IRCERApi.Integration.Tests            -- Integration tests
   IRCERApi_UnitTests                    -- Unit tests
-  IRCERApiDataManager.Library_UnitTests -- Unit tests
+  IRCERApi.Library_UnitTests -- Unit tests
   IRCERUILibrary_UnitTests              -- Unit tests
   IRCERUI.UnitTests                     -- Unit tests
   TestHelpers                           -- Mocked data helpers

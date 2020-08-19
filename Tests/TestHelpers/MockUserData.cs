@@ -1,8 +1,8 @@
-﻿using IRCERApiDataManager.Library.Models;
+﻿using IRCERApi.Library.Models;
 using System;
 using System.Collections.Generic;
 
-namespace IRCERApiDataManager.Library.DataAccess
+namespace IRCERApi.Library.DataAccess
 {
 	public static class MockUserData
 	{

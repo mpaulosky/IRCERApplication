@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace IRCERApiDataManager.Library.Data.Migrations
+namespace IRCERApi.Library.Data.Migrations
 {
 	[ExcludeFromCodeCoverage]
 	public partial class CreateIdentitySchema : Migration

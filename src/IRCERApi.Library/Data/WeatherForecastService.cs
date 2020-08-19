@@ -1,9 +1,9 @@
-using IRCERApiDataManager.Library.Models;
+using IRCERApi.Library.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IRCERApiDataManager.Library.Data
+namespace IRCERApi.Library.Data
 {
 	public class WeatherForecastService
 	{

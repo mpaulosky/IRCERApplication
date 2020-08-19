@@ -1,6 +1,6 @@
 ﻿using Autofac.Extras.Moq;
 using FluentAssertions;
-using IRCERApiDataManager.Library.Data;
+using IRCERApi.Library.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Moq;
@@ -14,70 +14,68 @@ namespace IRCERApi.Token.UnitTests
 		[Fact]
 		public void CreateToken_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				//Act
+			using var mock = AutoMock.GetLoose();
 
-				var sut = mock.Create<CreateToken>();
+			//Act
 
-				//Assert
+			var sut = mock.Create<CreateToken>();
 
-				sut.Should().NotBeNull();
-			}
+			//Assert
+
+			sut.Should().NotBeNull();
 		}
 
 		[Fact]
 		public async void GenerateToken_TestAsync()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var secretsKey = "MySecretKeyIsSecretSoDoNotTell";
+			using var mock = AutoMock.GetLoose();
 
-				var user = MockHelpers.GetIdentityUser();
+			var secretsKey = "MySecretKeyIsSecretSoDoNotTell";
 
-				var userRoles = MockHelpers.GetSampleIdentityUserRoles();
+			var user = MockHelpers.GetIdentityUser();
 
-				var mockUserRoles = MockHelpers.CreateDbSetMock(userRoles);
+			var userRoles = MockHelpers.GetSampleIdentityUserRoles();
 
-				var users = MockHelpers.GetSampleIdentityUsers();
+			var mockUserRoles = MockHelpers.CreateDbSetMock(userRoles);
 
-				var mockUsers = MockHelpers.CreateDbSetMock(users);
+			var users = MockHelpers.GetSampleIdentityUsers();
 
-				var roles = MockHelpers.GetIdentityRoles();
+			var mockUsers = MockHelpers.CreateDbSetMock(users);
 
-				var mockRoles = MockHelpers.CreateDbSetMock(roles);
+			var roles = MockHelpers.GetIdentityRoles();
 
-				var appMock = new Mock<ApplicationDbContext>();
-				appMock.Setup(x => x.Roles).Returns(mockRoles.Object);
-				appMock.Setup(x => x.Users).Returns(mockUsers.Object);
-				appMock.Setup(x => x.UserRoles).Returns(mockUserRoles.Object);
+			var mockRoles = MockHelpers.CreateDbSetMock(roles);
 
-				var userManager = MockHelpers.MockUserManager<IdentityUser>();
-				userManager.Setup(s => s.FindByNameAsync(user.UserName)).ReturnsAsync(() => user);
+			var appMock = new Mock<ApplicationDbContext>();
+			appMock.Setup(x => x.Roles).Returns(mockRoles.Object);
+			appMock.Setup(x => x.Users).Returns(mockUsers.Object);
+			appMock.Setup(x => x.UserRoles).Returns(mockUserRoles.Object);
 
-				var secMock = new Mock<IConfigurationSection>();
-				secMock.Setup(x => x.Value).Returns(secretsKey);
+			var userManager = MockHelpers.MockUserManager<IdentityUser>();
+			userManager.Setup(s => s.FindByNameAsync(user.UserName)).ReturnsAsync(() => user);
 
-				var configuration = new Mock<IConfiguration>();
-				configuration.Setup(c => c.GetSection(It.IsAny<string>()))
-				.Returns(secMock.Object);
+			var secMock = new Mock<IConfigurationSection>();
+			secMock.Setup(x => x.Value).Returns(secretsKey);
 
-				var sut = new CreateToken(appMock.Object, userManager.Object, configuration.Object);
+			var configuration = new Mock<IConfiguration>();
+			configuration.Setup(c => c.GetSection(It.IsAny<string>()))
+			.Returns(secMock.Object);
 
-				//Act
+			var sut = new CreateToken(appMock.Object, userManager.Object, configuration.Object);
 
-				var result = await sut.GenerateToken(user.Email);
+			//Act
 
-				//Assert
+			var result = await sut.GenerateToken(user.Email);
 
-				sut.Should().NotBeNull();
+			//Assert
 
-				Assert.NotNull(result);
-			}
+			sut.Should().NotBeNull();
+
+			Assert.NotNull(result);
 		}
 	}
 }

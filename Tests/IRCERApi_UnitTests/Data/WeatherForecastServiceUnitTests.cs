@@ -1,6 +1,6 @@
 ﻿using Autofac.Extras.Moq;
 using FluentAssertions;
-using IRCERApiDataManager.Library.Data;
+using IRCERApi.Library.Data;
 using System;
 using System.Threading.Tasks;
 using Xunit;

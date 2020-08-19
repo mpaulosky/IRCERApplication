@@ -1,4 +1,4 @@
-﻿using IRCERApiDataManager.Library.Data;
+﻿using IRCERApi.Library.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

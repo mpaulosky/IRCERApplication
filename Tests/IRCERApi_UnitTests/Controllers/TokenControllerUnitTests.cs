@@ -13,61 +13,59 @@ namespace IRCERApi.Controllers.UnitTests
 		[Fact]
 		public async Task Create_WithValidUser_ShouldReturnToken()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userName = "Test";
-				var token = "token";
-				var password = "test";
+			using var mock = AutoMock.GetLoose();
 
-				mock.Mock<IValidateUser>()
-						.Setup(x => x.IsValidUsernameAndPassword(userName, It.IsAny<string>())).ReturnsAsync(true);
+			var userName = "Test";
+			var token = "token";
+			var password = "test";
 
-				mock.Mock<ICreateToken>()
-						.Setup(x => x.GenerateToken(It.IsAny<string>()))
-						.ReturnsAsync(() => new { token, userName });
+			mock.Mock<IValidateUser>()
+					.Setup(x => x.IsValidUsernameAndPassword(userName, It.IsAny<string>())).ReturnsAsync(true);
 
-				var sut = mock.Create<TokenController>();
+			mock.Mock<ICreateToken>()
+					.Setup(x => x.GenerateToken(It.IsAny<string>()))
+					.ReturnsAsync(() => new { token, userName });
 
-				//Act
+			var sut = mock.Create<TokenController>();
 
-				var result = await sut.Create(userName, password, "test");
+			//Act
 
-				//Assert
+			var result = await sut.Create(userName, password, "test");
 
-				Assert.IsType<ObjectResult>(result);
+			//Assert
 
-				Assert.True(result != null);
-			}
+			Assert.IsType<ObjectResult>(result);
+
+			Assert.True(result != null);
 		}
 
 		[Fact]
 		public async Task Create_WithInValidUser_ShouldReturnBadRequest()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userName = "Test";
-				var password = "test";
+			using var mock = AutoMock.GetLoose();
 
-				mock.Mock<IValidateUser>();
+			var userName = "Test";
+			var password = "test";
 
-				mock.Mock<ICreateToken>();
+			mock.Mock<IValidateUser>();
 
-				var sut = mock.Create<TokenController>();
+			mock.Mock<ICreateToken>();
 
-				//Act
+			var sut = mock.Create<TokenController>();
 
-				var result = await sut.Create(userName, password, "test");
+			//Act
 
-				//Assert
+			var result = await sut.Create(userName, password, "test");
 
-				Assert.IsType<BadRequestResult>(result);
+			//Assert
 
-				Assert.True(result != null);
-			}
+			Assert.IsType<BadRequestResult>(result);
+
+			Assert.True(result != null);
 		}
 	}
 }

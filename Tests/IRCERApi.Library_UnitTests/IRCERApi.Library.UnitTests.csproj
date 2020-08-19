@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\IRCERApi.Library\IRCERApi.Library.csproj" />
     <ProjectReference Include="..\TestHelpers\TestHelpers.csproj" />
   </ItemGroup>
   

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace IRCERApiDataManager.Library.Models
+namespace IRCERApi.Library.Models
 {
 	[ExcludeFromCodeCoverage]
 	public class UserRolePairModel

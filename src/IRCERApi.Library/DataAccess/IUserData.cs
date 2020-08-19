@@ -1,7 +1,7 @@
-﻿using IRCERApiDataManager.Library.Models;
+﻿using IRCERApi.Library.Models;
 using System.Collections.Generic;
 
-namespace IRCERApiDataManager.Library.DataAccess
+namespace IRCERApi.Library.DataAccess
 {
 	public interface IUserData
 	{

@@ -9,43 +9,41 @@ namespace IRCERApi.Controllers.UnitTests
 		[Fact()]
 		public void Index_ReturnsView_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var sut = mock.Create<HomeController>();
+			using var mock = AutoMock.GetLoose();
 
-				//Act
+			var sut = mock.Create<HomeController>();
 
-				var result = sut.Index();
+			//Act
 
-				//Assert
+			var result = sut.Index();
 
-				Assert.IsType<ViewResult>(result);
+			//Assert
 
-				Assert.True(result != null);
-			}
+			Assert.IsType<ViewResult>(result);
+
+			Assert.True(result != null);
 		}
 
 		[Fact]
 		public void Privacy_ReturnsView_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var sut = mock.Create<HomeController>();
+			using var mock = AutoMock.GetLoose();
 
-				//Act
+			var sut = mock.Create<HomeController>();
 
-				var result = sut.Privacy();
+			//Act
 
-				//Assert
+			var result = sut.Privacy();
 
-				Assert.IsType<ViewResult>(result);
+			//Assert
 
-				Assert.True(result != null);
-			}
+			Assert.IsType<ViewResult>(result);
+
+			Assert.True(result != null);
 		}
 
 		//[Fact]

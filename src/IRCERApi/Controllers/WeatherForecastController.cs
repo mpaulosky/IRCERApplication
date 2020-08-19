@@ -1,4 +1,4 @@
-﻿using IRCERApiDataManager.Library.Models;
+﻿using IRCERApi.Library.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

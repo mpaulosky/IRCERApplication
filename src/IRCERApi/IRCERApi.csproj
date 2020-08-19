@@ -31,6 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IRCERApiDataManager.Library\IRCERApiDataManager.Library.csproj" />
+    <ProjectReference Include="..\IRCERApi.Library\IRCERApi.Library.csproj" />
   </ItemGroup>
 </Project>

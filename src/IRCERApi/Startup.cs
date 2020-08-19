@@ -1,6 +1,6 @@
-using IRCERApiDataManager.Library.Data;
-using IRCERApiDataManager.Library.DataAccess;
-using IRCERApiDataManager.Library.Internal.DataAccess;
+using IRCERApi.Library.Data;
+using IRCERApi.Library.DataAccess;
+using IRCERApi.Library.Internal.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;

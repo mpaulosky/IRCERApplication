@@ -8,7 +8,7 @@ namespace IRCERUI.Pages.UnitTests
 		[Fact]
 		public void Component1RendersCorrectly()
 		{
-			var cut = RenderComponent<Pages.Index>();
+			var cut = RenderComponent<Index>();
 
 			var expectedHtml = @"<h1>Hello, world!</h1>
                                 Welcome to your new app.

@@ -10,24 +10,23 @@ namespace IRCERApi.Controllers.UnitTests
 		[Fact]
 		public void Get_ShouldReturnAListOfForecasts()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				mock.Mock<ILogger>();
+			using var mock = AutoMock.GetLoose();
 
-				var sut = mock.Create<WeatherForecastController>();
+			mock.Mock<ILogger>();
 
-				//Act
+			var sut = mock.Create<WeatherForecastController>();
 
-				var result = sut.Get();
+			//Act
 
-				//Assert
+			var result = sut.Get();
 
-				Assert.True(result != null);
+			//Assert
 
-				Assert.True(result.Count() > 3);
-			}
+			Assert.True(result != null);
+
+			Assert.True(result.Count() > 3);
 		}
 	}
 }

@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\IRCERApiDataManager.Library\IRCERApiDataManager.Library.csproj" />
+    <ProjectReference Include="..\..\src\IRCERApi.Library\IRCERApi.Library.csproj" />
     <ProjectReference Include="..\..\src\IRCERApi\IRCERApi.csproj" />
   </ItemGroup>
 

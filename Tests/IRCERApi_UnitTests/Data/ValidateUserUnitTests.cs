@@ -13,52 +13,50 @@ namespace IRCERApi.Data.UnitTests
 		[InlineData("test", true)]
 		public async Task IsValidUsernameAndPassword_TestAsync(string password, bool expected)
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var user = MockHelpers.GetIdentityUser();
+			using var mock = AutoMock.GetLoose();
 
-				var userManager = MockHelpers.MockUserManager<IdentityUser>();
-				userManager.Setup(s => s.FindByEmailAsync(user.Email)).ReturnsAsync(() => user);
-				userManager.Setup(s => s.CheckPasswordAsync(user, password)).ReturnsAsync(() => true).Verifiable();
+			var user = MockHelpers.GetIdentityUser();
 
-				var sut = new ValidateUser(userManager.Object);
+			var userManager = MockHelpers.MockUserManager<IdentityUser>();
+			userManager.Setup(s => s.FindByEmailAsync(user.Email)).ReturnsAsync(() => user);
+			userManager.Setup(s => s.CheckPasswordAsync(user, password)).ReturnsAsync(() => true).Verifiable();
 
-				//Act
+			var sut = new ValidateUser(userManager.Object);
 
-				var result = await sut.IsValidUsernameAndPassword(user.UserName, password);
+			//Act
 
-				//Assert
+			var result = await sut.IsValidUsernameAndPassword(user.UserName, password);
 
-				Assert.Equal(expected, result);
-			}
+			//Assert
+
+			Assert.Equal(expected, result);
 		}
 
 		[Theory]
 		[InlineData("t", false)]
 		public async Task IsValidUsernameAndPassword_InvalidPassword_TestAsync(string password, bool expected)
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var user = MockHelpers.GetIdentityUser();
+			using var mock = AutoMock.GetLoose();
 
-				var userManager = MockHelpers.MockUserManager<IdentityUser>();
-				userManager.Setup(s => s.FindByEmailAsync(user.Email)).ReturnsAsync(() => user);
-				userManager.Setup(s => s.CheckPasswordAsync(user, password)).ReturnsAsync(() => false).Verifiable();
+			var user = MockHelpers.GetIdentityUser();
 
-				var sut = new ValidateUser(userManager.Object);
+			var userManager = MockHelpers.MockUserManager<IdentityUser>();
+			userManager.Setup(s => s.FindByEmailAsync(user.Email)).ReturnsAsync(() => user);
+			userManager.Setup(s => s.CheckPasswordAsync(user, password)).ReturnsAsync(() => false).Verifiable();
 
-				//Act
+			var sut = new ValidateUser(userManager.Object);
 
-				var result = await sut.IsValidUsernameAndPassword(user.UserName, password);
+			//Act
 
-				//Assert
+			var result = await sut.IsValidUsernameAndPassword(user.UserName, password);
 
-				Assert.Equal(expected, result);
-			}
+			//Assert
+
+			Assert.Equal(expected, result);
 		}
 	}
 }
