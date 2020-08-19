@@ -1,4 +1,4 @@
-using IRCERApi.Data;
+using IRCERApiDataManager.Library.Data;
 using IRCERUI.Areas.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;

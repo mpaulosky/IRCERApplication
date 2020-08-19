@@ -33,12 +33,5 @@ namespace IRCERApi.Controllers
 
 			return View();
 		}
-
-		//[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		//public IActionResult Error()
-		//{
-		//    var err = new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier };
-		//    return View(err);
-		//}
 	}
 }
