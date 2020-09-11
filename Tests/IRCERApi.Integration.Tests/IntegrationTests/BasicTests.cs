@@ -5,8 +5,7 @@ using Xunit;
 
 namespace IRCERApi.Integration.Tests
 {
-	public class BasicTests
-				: IClassFixture<WebApplicationFactory<Startup>>
+	public class BasicTests : IClassFixture<WebApplicationFactory<Startup>>
 	{
 		private readonly WebApplicationFactory<Startup> _factory;
 
