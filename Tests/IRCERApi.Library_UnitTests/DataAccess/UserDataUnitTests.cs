@@ -14,28 +14,27 @@ namespace IRCERApi.Library.DataAccess.UnitTests
 		[Fact()]
 		public void GetUserById_WithValidId_ShouldReturnUser_Test()
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userID = "john.doe@test.com";
+			using var mock = AutoMock.GetLoose();
 
-				var userData = MockUserData.User();
+			var userID = "john.doe@test.com";
 
-				mock.Mock<ISqlDataAccess>().Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>())).Returns(() => userData);
+			var userData = MockUserData.User();
 
-				var sut = mock.Create<UserData>();
+			mock.Mock<ISqlDataAccess>().Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>())).Returns(() => userData);
 
-				//Act
+			var sut = mock.Create<UserData>();
 
-				var result = sut.GetUserById(userID);
+			//Act
 
-				//Assert
+			var result = sut.GetUserById(userID);
 
-				result.Should().NotBeNull();
-				result.Should().HaveCount(1);
-				result[0].Id.Should().BeEquivalentTo(userID);
-			}
+			//Assert
+
+			result.Should().NotBeNull();
+			result.Should().HaveCount(1);
+			result[0].Id.Should().BeEquivalentTo(userID);
 		}
 
 		[Theory]
@@ -43,20 +42,19 @@ namespace IRCERApi.Library.DataAccess.UnitTests
 		[InlineData(null)]
 		public void GetUserById_WithEmptyId_ShouldReturnAnArgumentException_Test(string userID)
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				mock.Mock<ISqlDataAccess>();
+			using var mock = AutoMock.GetLoose();
 
-				var sut = mock.Create<UserData>();
+			mock.Mock<ISqlDataAccess>();
 
-				//Assert
+			var sut = mock.Create<UserData>();
 
-				var ex = Assert.Throws<ArgumentException>(() => sut.GetUserById(userID));
+			//Assert
 
-				ex.Message.Should().BeEquivalentTo("message (Parameter 'Id')");
-			}
+			var ex = Assert.Throws<ArgumentException>(() => sut.GetUserById(userID));
+
+			ex.Message.Should().BeEquivalentTo("message (Parameter 'Id')");
 		}
 
 		[Theory]
@@ -64,26 +62,27 @@ namespace IRCERApi.Library.DataAccess.UnitTests
 		[InlineData("jane.doe@test.com", 1)]
 		public void GetAll_ReturnsAListOfUsers(string userID, int index)
 		{
-			using (var mock = AutoMock.GetLoose())
-			{
-				//Arrange
+			//Arrange
 
-				var userData = MockUserData.Users();
+			using var mock = AutoMock.GetLoose();
 
-				mock.Mock<ISqlDataAccess>().Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>())).Returns(() => userData);
+			var userData = MockUserData.Users();
 
-				var sut = mock.Create<UserData>();
+			mock.Mock<ISqlDataAccess>()
+			 .Setup(x => x.LoadData<UserModel, dynamic>(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<string>()))
+			 .Returns(() => userData);
 
-				//Act
+			var sut = mock.Create<UserData>();
 
-				var result = sut.GetAllUsers();
+			//Act
 
-				//Assert
+			var result = sut.GetAllUsers();
 
-				result.Should().NotBeNull();
-				result.Should().HaveCount(2);
-				result[index].Id.Should().BeEquivalentTo(userID);
-			}
+			//Assert
+
+			result.Should().NotBeNull();
+			result.Should().HaveCount(2);
+			result[index].Id.Should().BeEquivalentTo(userID);
 		}
 	}
 }

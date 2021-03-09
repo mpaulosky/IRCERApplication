@@ -32,15 +32,18 @@ namespace IRCERApi
 			services.AddDbContext<ApplicationDbContext>(options =>
 					options.UseSqlServer(
 							Configuration.GetConnectionString("DefaultConnection")));
+
 			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 					.AddRoles<IdentityRole>()
 					.AddEntityFrameworkStores<ApplicationDbContext>();
 
 			services.AddControllersWithViews();
+
 			services.AddRazorPages();
 
 			// Personal Services
 			services.AddTransient<IUserData, UserData>();
+
 			services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 
 			services.AddAuthentication(options =>
@@ -59,8 +62,7 @@ namespace IRCERApi
 					ValidateLifetime = true,
 					ClockSkew = TimeSpan.FromMinutes(5)
 				};
-			}
-			);
+			});
 
 			services.AddSwaggerGen(setup =>
 			{
